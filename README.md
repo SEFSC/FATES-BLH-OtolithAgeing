@@ -7,6 +7,7 @@ Our work **Automatic Fish Age Prediction using Deep Machine Learning: Combining 
 We have otolith data collected for two commercially important fish species: Walleye Pollock and Red Snapper.  Our data consists of whole otolith image, otolith FT-NIR spectra, and associated metadata like otolith weight, catch location, etc.
 
 ![Alt text](images/pollock_images.jpg "Pollock Otolith Images")
+*Pollock Otolith Images*
 
 ![Alt text](images/pollock distribution.jpg "Pollock Data Age Distribution")
 

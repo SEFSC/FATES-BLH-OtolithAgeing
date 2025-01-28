@@ -42,3 +42,8 @@ In this chapter, we try a more complicated way to merge the three data modalitie
 *Condition Merge Architecture*
 
 ## Chapter 5 - Image Feature Attribution
+We use various model interpretation algorithm to visualize the per-pixel contributions to the model’s age prediction, presenting this information as a heatmap overlaid on the original otolith image.
+
+![Alt text](images/image_attribution.png "Image Attribution")
+
+*Condition Merge Architecture*

@@ -1,13 +1,13 @@
 ---
 title: "ABOUT: Creating the SEFSC Quarto Theme and Template"
 subtitle: A technical overview of customizing the theme, creating the skeleton template, and merging the two together
-order: 3
 metadata-files:
   - ../../_metadata.yml
+order: 3
 ---
 
-This section is for informational purposes only. It's technical. It captures the process to create the GitHub Pages [SEFSC-documentation-quarto-skeleton]({{< meta website.site-url >}}) repository template for use within the NOAA Fisheries Southeast Fisheries Science Center.
+This section is for informational purposes only. It's technical. It captures the process to create the GitHub Pages [SEFSC-documentation-quarto-skeleton]({{< meta website.site-url >}}) [SEFSC-documentation-quarto-skeleton](../../index) repository template for use within the NOAA Fisheries Southeast Fisheries Science Center.
 
 Nothing herein needs to be repeated to create a specific documentation page in a GitHub repository. These steps are *only necessary if one desires to create a new **template*** of the same format and functionality – for example, if a different Financial Management Center (FMC) desires to create their own custom template.
 
-Instructions for creating an actual documentation page using the theme are provided in [Getting started with SEFSC Quarto Documentation Theme Skeleton]({{< meta website.site-url >}}/content/howto/setup.html).
+Instructions for creating an actual documentation page using the theme are provided in [Getting started with SEFSC Quarto Documentation Theme Skeleton]({{< meta website.site-url >}}/content/howto/setup.html) [Getting started with SEFSC Quarto Documentation Theme Skeleton](../howto/setup).

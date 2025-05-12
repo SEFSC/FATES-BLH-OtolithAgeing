@@ -10,4 +10,4 @@ This section is for informational purposes only. It's technical. It captures the
 
 Nothing herein needs to be repeated to create a specific documentation page in a GitHub repository. These steps are *only necessary if one desires to create a new **template*** of the same format and functionality – for example, if a different Financial Management Center (FMC) desires to create their own custom template.
 
-Instructions for creating an actual documentation page using the theme are provided in [Getting started with SEFSC Quarto Documentation Theme Skeleton]({{< meta site.repo-url >}}/content/howto/setup.html).
+Instructions for creating an actual documentation page using the theme are provided in [Getting started with SEFSC Quarto Documentation Theme Skeleton]({{< meta website.site-url >}}/content/howto/setup.html).

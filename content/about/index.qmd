@@ -2,6 +2,8 @@
 title: "ABOUT: Creating the SEFSC Quarto Theme and Template"
 subtitle: A technical overview of customizing the theme, creating the skeleton template, and merging the two together
 order: 3
+metadata-files:
+  - _metadata.yml
 ---
 
 This section is for informational purposes only. It's technical. It captures the process to create the GitHub Pages [SEFSC-documentation-quarto-skeleton]({{< meta website.site-url >}}) repository template for use within the NOAA Fisheries Southeast Fisheries Science Center.

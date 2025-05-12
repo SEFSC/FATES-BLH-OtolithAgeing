@@ -4,8 +4,8 @@ subtitle: A technical overview of customizing the theme, creating the skeleton t
 order: 3
 ---
 
-This section is for informational purposes only. It's technical. It captures the process to create the GitHub Pages [SEFSC-documentation-quarto-skeleton](https://sefsc.github.io/SEFSC-documentation-quarto-skeleton) repository template for use within the NOAA Fisheries Southeast Fisheries Science Center.
+This section is for informational purposes only. It's technical. It captures the process to create the GitHub Pages [SEFSC-documentation-quarto-skeleton]({{< meta website.site-url >}}) repository template for use within the NOAA Fisheries Southeast Fisheries Science Center.
 
 Nothing herein needs to be repeated to create a specific documentation page in a GitHub repository. These steps are *only necessary if one desires to create a new **template*** of the same format and functionality – for example, if a different Financial Management Center (FMC) desires to create their own custom template.
 
-Instructions for creating an actual documentation page using the theme are provided in [Getting started with SEFSC Quarto Documentation Theme Skeleton](https://mattgrossi-noaa.github.io/FATES-BLH-ScaleAgeing/content/howto/setup.html).
+Instructions for creating an actual documentation page using the theme are provided in [Getting started with SEFSC Quarto Documentation Theme Skeleton]({{< meta website.repo-url >}}/content/howto/setup.html).

@@ -1,6 +1,8 @@
 ---
 title: "Updating the Theme"
 subtitle: Syncing website theme and navbar with other SEFSC documentation pages
+metadata-files:
+  - ../../_metadata.yml
 order: 6
 ---
 
@@ -9,7 +11,7 @@ The [SEFSC-documentation-quarto-skeleton](https://github.com/SEFSC/SEFSC-documen
 The `theme` and `navbars` directories are both imported as submodules. Neither directory should be ever be manually modified within any cloned or forked documentation rep. Doing so would defeat the purpose of using submodules.
 
 ::: {.callout-tip}
-One way to know that `theme` and `navbars` are submodules is to look at the contents of the `docs` branch on the repo's webpage (for example, [here](https://github.com/SEFSC/SEFSC-documentation-quarto-skeleton/tree/docs).) Notice the icon for these two folders contain an arrow and the directory names are followed by an "@" and seven characters (e.g., `theme @ eea3d56`). The icon arrow can be interpretted as pointing to another external repository and the `@ eea3d56` indicates the specific commit of that repository that is being read in. Any upstream updates to the theme repo will result in a new commit code, but downsteam submodules need to be manually updated to retrieve the new commits.
+One way to know that `theme` and `navbars` are submodules is to look at the contents of the `docs` branch on the repo's webpage (for example, [here]({{< meta website.repo-url >}}/tree/docs).) Notice the icon for these two folders contain an arrow and the directory names are followed by an "@" and seven characters (e.g., `theme @ eea3d56`). The icon arrow can be interpretted as pointing to another external repository and the `@ eea3d56` indicates the specific commit of that repository that is being read in. Any upstream updates to the theme repo will result in a new commit code, but downsteam submodules need to be manually updated to retrieve the new commits.
 :::
 
 ## Updating the submodules

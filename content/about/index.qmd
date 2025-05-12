@@ -1,8 +1,6 @@
 ---
 title: "ABOUT: Creating the SEFSC Quarto Theme and Template"
 subtitle: A technical overview of customizing the theme, creating the skeleton template, and merging the two together
-metadata-files:
-  - ../../_metadata.yml
 order: 3
 ---
 

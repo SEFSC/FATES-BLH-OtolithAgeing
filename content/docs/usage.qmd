@@ -19,7 +19,7 @@ conda activate scaleageing
 ```
 
 :::{.callout-tip}
-If you named your virtual environment something other than "scaleageing", involk that name instead.
+If you named your virtual environment something other than "scaleageing", invoke that name instead.
 :::
 
 Navigate into the directory containing the `Scale_Aging_Inference_Script_Image_Only.py` script. If you simply cloned the repo and have not moved anything around, this will in the `scripts` subdirectory in the cloned repository.
@@ -30,11 +30,11 @@ Run the model as described in the [usage instructions](../../index.qmd#usage):
 python Scale_Aging_Inference_Script_Image_Only.py <img_dir> <csv_dir> <model_dir>
 ```
 
-where `<img_dir>` is the full path to the directory containing the scale images to process (#1 above), `<csv_dir>` is the full path to desired directory to which the CSV output will be written  (#2 above), and `<model_dir>` is the full path to the directory containing the trained model weights (*i.e.*, the `best_model.pth` file) (#3 above).
+where `<img_dir>` is the full path to the directory containing the scale images to process (#1 above), `<csv_dir>` is the full path to desired directory to which the CSV output will be written  (#2 above), and `<model_dir>` is the full path to the directory containing the `best_model.pth` model weights (#3 above).
 
 ### An Example
 
-For example, running on the Advanced Technology GPU machine might to process 2024 menhaden data might look like this:
+Directories are handled slightly differently in DOS (Windows Command Prompt, Powershell) than UNIX (Git Bash). For example, running on the Advanced Technology GPU machine might to process 2024 menhaden data might look like this:
 
 #### Git Bash
 

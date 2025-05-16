@@ -1,70 +1,83 @@
 ---
-title: "SEFSC Quarto Documentation Theme"
-subtitle: "This is a placeholder markdown document that will render as the index.html page for the documentation site. Replace content as desired."
+title: "Menhaden Ageing Model"
+subtitle: "An innovative, state-of-the-art deep learning model for automatically ageing menhaden samples using scale images"
 page-layout: full
 ---
 
-This is a template for a simple Quarto website that looks like a "book". This is a common format for documentation. It includes a [GitHub Action](https://github.com/nmfs-opensci/NOAA-quarto-simple-python/blob/main/.github/workflows/render-and-publish.yml) that will build the website automatically when you make changes to the files. The NOAA palette and fonts has been added to `theme.scss`. The webpage will be on the `gh-pages` branch. Serving the website files from this branch is a common way to keep all the website files from cluttering your main branch. 
-
-This Quarto website has Python code in the `code.qmd` file and has a Jupyter notebook. The GitHub Action will render those for you but note that you need some a special **RAW** block at the top of your ipynb file. Without this, the Jupyter notebook won't render (code blocks won't be computed). It looks like this
-```
----
-title: Jupyter Notebook
-execute:
-  enabled: true
-jupyter: python3
----
-```
-Also you will need to add any modules that your code needs to the `requirements.txt` file so they are installed by the GitHub Action.
-
-The documentation page would start at [Read the Docs](/content/docs/index.qmd).
-
-Instructions for using this theme can be found in the [HOWTO: Using the SEFSC Quarto Theme](/content/howto/setup.qmd) pages.
+This Menhaden Ageing Model provides an innovative method for automatically estimating Menhaden age using scale images. Built upon state-of-the-art deep learning algorithms, it enables rapid generation of fish age predictions by simply pointing to a directory containing magnified images of scale samples.
 
 ## About
 
-A brief high-level description of what this application is used for and what it does.
+The internal workflow is as follows:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum porta iaculis. Vestibulum semper scelerisque nunc, ac sagittis quam ornare eget. Sed massa dui, vehicula at magna non, semper porttitor dolor. Pellentesque eget augue purus. Cras quis urna iaculis, aliquam urna non, malesuada velit. Suspendisse arcu diam, fringilla in ex fringilla, ultrices pharetra orci. Phasellus leo sapien, elementum vitae tempus in, aliquet vitae leo. Cras eros urna, suscipit tincidunt mi id, dignissim eleifend ante. Etiam ullamcorper dui auctor leo dapibus, at varius lorem mattis. Morbi maximus velit id nisi luctus commodo. Mauris ut bibendum urna, vel lobortis felis. Duis convallis mauris quis finibus dignissim.
+1. Raw images are first converted to grayscale such that every image pixel contains a value [0, 255]. These grayscale images are then processed using [binary thresholding](https://en.wikipedia.org/wiki/Thresholding_(image_processing)) image processing techniques by which all pixels whose values are above a certain threshold are set to 1 while the rest are set to 0. This allows the scale itself to be distinguished from the image background. The threshold value used for menhaden, based on trail and error, is 100.
+2. Imperfections in the new masked images are cleaned up using [morphological opening](https://en.wikipedia.org/wiki/Opening_(morphology)) and [closing](https://en.wikipedia.org/wiki/Closing_(morphology)) techniques to remove undesired background noise and capture any missed portions of the scale.
+3. The contours of the masked shape are identified in order to extract the object of interest (*i.e.*, the scale).
+4. The scale is then cropped out of the original image and padded to make it square.
+5. The new square image containing just the scale of interest is passed to a trained custom [residual neural network](https://en.wikipedia.org/wiki/Residual_neural_network) (resnet) deep learning classification model. Model output is saved to a CSV file.
 
-Fusce interdum et ex eget maximus. Nam rhoncus elementum facilisis. Curabitur sagittis facilisis lectus, in viverra urna fermentum id. Praesent eget est libero. Praesent accumsan sed ex id finibus. In sed augue non tortor porta tristique vitae elementum sapien. Duis enim sapien, varius non nulla sit amet, mattis pharetra tellus. Ut volutpat placerat risus vitae faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+Implementation instructions follow. Be sure to [set up and configure a Python environment](content/docs/setup.qmd) before the first use.
 
 ## Usage
 
-Describe how to use the application.
+The full model is wrapped inside a single Python script called `Scale_Aging_Inference_Script_Image_Only.py`. To execute, run the following command in a command line terminal:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum porta iaculis. Vestibulum semper scelerisque nunc, ac sagittis quam ornare eget. Sed massa dui, vehicula at magna non, semper porttitor dolor. Pellentesque eget augue purus. Cras quis urna iaculis, aliquam urna non, malesuada velit. Suspendisse arcu diam, fringilla in ex fringilla, ultrices pharetra orci. Phasellus leo sapien, elementum vitae tempus in, aliquet vitae leo. Cras eros urna, suscipit tincidunt mi id, dignissim eleifend ante. Etiam ullamcorper dui auctor leo dapibus, at varius lorem mattis. Morbi maximus velit id nisi luctus commodo. Mauris ut bibendum urna, vel lobortis felis. Duis convallis mauris quis finibus dignissim.
+```bash
+python Scale_Aging_Inference_Script_Image_Only.py <img_dir> <csv_dir> <model_dir>
+```
 
-Fusce interdum et ex eget maximus. Nam rhoncus elementum facilisis. Curabitur sagittis facilisis lectus, in viverra urna fermentum id. Praesent eget est libero. Praesent accumsan sed ex id finibus. In sed augue non tortor porta tristique vitae elementum sapien. Duis enim sapien, varius non nulla sit amet, mattis pharetra tellus. Ut volutpat placerat risus vitae faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+where
+
+|               |                                                                                                       |
+| :------------ | :---------------------------------------------------------------------------------------------------- |
+| `<img_dir>`   | (str) full path to the directory containing the scale images to process                                   |
+| `<csv_dir>`   | (str) full path to desired directory to which the CSV output will be written                          |
+| `<model_dir>` | (str) full path to the directory containing the trained model weights (*i.e.*, the `best_model.pth` file) |
 
 ## Options
 
-List and describe all available options.
+No options are available at this time. All arguments above are currently required.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum porta iaculis. Vestibulum semper scelerisque nunc, ac sagittis quam ornare eget. Sed massa dui, vehicula at magna non, semper porttitor dolor. Pellentesque eget augue purus. Cras quis urna iaculis, aliquam urna non, malesuada velit. Suspendisse arcu diam, fringilla in ex fringilla, ultrices pharetra orci. Phasellus leo sapien, elementum vitae tempus in, aliquet vitae leo. Cras eros urna, suscipit tincidunt mi id, dignissim eleifend ante. Etiam ullamcorper dui auctor leo dapibus, at varius lorem mattis. Morbi maximus velit id nisi luctus commodo. Mauris ut bibendum urna, vel lobortis felis. Duis convallis mauris quis finibus dignissim.
+## Dependencies
 
-Fusce interdum et ex eget maximus. Nam rhoncus elementum facilisis. Curabitur sagittis facilisis lectus, in viverra urna fermentum id. Praesent eget est libero. Praesent accumsan sed ex id finibus. In sed augue non tortor porta tristique vitae elementum sapien. Duis enim sapien, varius non nulla sit amet, mattis pharetra tellus. Ut volutpat placerat risus vitae faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+* [Anaconda](https://www.anaconda.com/) (for virtual environment implementation)
+* [Git CLI](https://git-scm.com/downloads) (for repository cloning)
+* Python >=3.9
+* torch ==1.12.1
+* torchvision == 0.13.1
+* torchaudio == 0.12.1
+* opencv-python
+* pandas
+* tqdm
+
+#### Recommendations
+
+* matplotlib (data plotting in Python)
+* jupyter (viewing Jupyter notebook demonstrations provided in the GitHub repo)
+
+See [Getting Started](content/docs/setup.qmd) for installation and setup instructions.
 
 ## Release Notes
-
-Version history summarizing the stages of development, enhancements, bug fixes, etc. as multiple versions are created. This section is not always relevant nor necessary, but it can be nice to see. The collapsible bulleted list below is a suggested template.
 
 <details>
   <summary>
     <b> Version History </b>
   </summary>
   <ul>
-    <li> <b>Version 1.0</b> (Sep 2023): Initial version </li>
-    <li> <b>Version 1.1</b> (Mon YYYY): Revised to include:
+    <li> <b>2025.0.1 (BETA)</b> (May 2025): Initial version for testing with the following functionality:
       <ul>
-        <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum porta iaculis. Vestibulum semper scelerisque nunc, ac sagittis quam ornare eget. Sed massa dui, vehicula at magna non, semper porttitor dolor. Pellentesque eget augue purus. </li>
-        <li> Cras quis urna iaculis, aliquam urna non, malesuada velit. Suspendisse arcu diam, fringilla in ex fringilla, ultrices pharetra orci. Phasellus leo sapien, elementum vitae tempus in, aliquet vitae leo. Cras eros urna, suscipit tincidunt mi id, dignissim eleifend ante. </li> 
-        <li> Etiam ullamcorper dui auctor leo dapibus, at varius lorem mattis. Morbi maximus velit id nisi luctus commodo. Mauris ut bibendum urna, vel lobortis felis. Duis convallis mauris quis finibus dignissim. </li>
-      </ul> </li>
-    <li> <b>Version 2.0</b> (Mon YYYY): Fusce interdum et ex eget maximus. Nam rhoncus elementum facilisis. Curabitur sagittis facilisis lectus, in viverra urna fermentum id. Praesent eget est libero. Praesent accumsan sed ex id finibus. In sed augue non tortor porta tristique vitae elementum sapien. Duis enim sapien, varius non nulla sit amet, mattis pharetra tellus. Ut volutpat placerat risus vitae faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </li>
+        <li> Run via command line with image, output, and model directories passed as required arguments </li>
+      </ul>
   </ul>
 </details>
 
-:::{.callout-important}
+<br>
+
+:::{.callout-important title=License}
+Software code created by U.S. Government employees is not subject to copyright in the United States (17 U.S.C. §105). The United States/Department of Commerce reserve all rights to seek and obtain copyright protection in countries other than the United States for Software authored in its entirety by the Department of Commerce. To this end, the Department 
+of Commerce hereby grants to Recipient a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.
+:::
+
+:::{.callout-important title=Disclaimer}
 This software is a scientific product and is not official communication of the National Oceanic and Atmospheric Administration, or the United States Department of Commerce. All NOAA software and project code is provided on an "as is" basis and the user assumes responsibility for its use. Any claims against the Department of Commerce or Department of Commerce bureaus stemming from the use of this software will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.
 :::

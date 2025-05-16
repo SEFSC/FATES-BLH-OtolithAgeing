@@ -1,110 +1,83 @@
 ---
 title: Getting Started
-subtitle: Creating your own documentation page using the SEFSC Quarto Theme
+subtitle: Creating and configuration a Python virtual environment
 metadata-files:
   - ../../_metadata.yml
-order: 1
+order: 2
 ---
 
-Follow [Step 1a](#step-1a-use-the-sefsc-documentation-quarto-skeleton-template-to-create-your-own-forked-repository) below if you do not yet have a GitHub repository and would like to start a new one with gh-pages. If you already have a repository to which you would like to add a new gh-pages branch with the SEFSC documentation template, start with [Step 1b](#step-1b-add-a-new-orphan-branch-to-an-existing-repository).
+Much of the following is carried out using command line. In the instructions below, "command line terminal" or "terminal" refer to any command line application for the given operating system. For Windows, this is commonly Command Prompt or Windows Powershell. These use DOS commands. For UNIX users,Git Bash is a good alternative; it is included in [Git for Windows](#git) and allows UNIX commands to be used instead of DOS.
 
-### Step 1a: Use the SEFSC-documentation-quarto-skeleton template to create your own forked repository
+### Software Installation
 
-This is done on the GitHub website.  These steps assume you already have a GitHub account in place.
+#### git
 
-1. Browse to the [SEFSC-documentation-quarto-skeleton](../..index.qmd) repository, select the "Use this template" button, and select "Create a new repository": ![GitHub use template image](https://ioos.github.io/use-template.png)
+If the [Git CLI](https://git-scm.com/downloads) is already installed, there should be a Git Bash program in your Applications. If so, open this program and verify everything is working by typing `git --version`. This should display the version of git installed on the system.
 
-2. Select the repository owner (your own account or a GitHub organization you have write permissions to) and type a name for the repository. If the new repository is for SEFSC-related work, the repository name should adhere to the SEFSC repository naming convention as depicted in the [SEFSC GitHub SOP](https://github.com/SEFSC/SEFSC-Resources/blob/18a6c7e98b3e9b71f5e5912282d9d7f08c0e0a1a/SEFSC%20GitHub%20SOP%20and%20User%20Agreement%20Form/SEFSC%20Github%20SOP%20-%20RR%20-%20LON%20-%20BGM.pdf). Select the "Include all branches" box. This is important to ensure everything works without any additional manual configuration. Enter a description, if desired. (This can be changed or added later.) Select "Public" (GitHub Pages doesn't work on private repos unless you have a paid account). At the end of this step, you should have a new repository available at the following URL: https://github.com/owner/my-new-documentation-repo.
+:::{.callout-note}
+This should already be installed for all users on the Advanced Technology GPU machine.
+:::
 
-   <img width="670" alt="image" src="../../images/createrepo.png">
+If needed, download and install the Git CLI before continuing. This does not need administrative priviledges to install at the user level. Confirm that it has been installed by opening a command line terminal and entering `git --version`.
 
-3. In the newly created template repo, click "Settings" at the top of the page, then select "Pages" on the side menu. Enable GitHub Pages, if not already enabled, and note the URL at which the site is live. You can verify that everything worked by navigating to the site in a web browser. It should exactly like the [original web book](https://nmfs-opensci.github.io/NOAA-quarto-simple-python/). Keep other settings unchanged and save any changes.
+#### conda
 
-   <img width="670" alt="image" src="../../images/enable-ghpages.png">  
+Download and install [Anaconda](https://www.anaconda.com/).
 
-4. From your new repository page, download or "clone" the repository to edit it locally using code editing software such as [Visual Studio Code](https://code.visualstudio.com/). The local editing process assumes you have a git client installed in order to push your edited files back to GitHub.  For those who do not have git, editing can be accomplished on the GitHub website one file at a time (see [Step 2: Edit your documentation site content](#step-2-edit-your-documentation-site-content) below for details). 
+:::{.callout-note}
+This is already installed on the Advanced Technology GPU machine, but it may need to be set up for each user. Keep reading to learn more.
+:::
 
-   <img width="335" alt="image" src="https://ioos.github.io/clone.png">
+Verify installation and configuration of Anaconda using a command line terminal such as Windows Command Prompt or Git Bash (installed with the Git CLI above):
 
-### Step 1b: Add a new orphan branch to an existing repository
+```bash
+conda --version
+```
 
-An *orphan branch* in GitHub is a branch whose commit history is independent of all other branches in the repo. This is useful for GitHub Pages because we can keep the website files separate from any project code and can work on either the website or the project code independently from each other. GitHub Pages are customarily saved in branches named "gh-pages", and this repo uses a `docs` branch for the website files. We need need to create both of these in the existing rep. Start with the `gh-pages` branch, and then repeat for `docs`.
+If Anaconda is configured properly, this should print the version of the installed software. If, instead, it returns a "command not found" error, and you know Anaconda has been installed, you most likely need to [add Conda to your path variables](https://stackoverflow.com/questions/44597662/conda-command-is-not-recognized-on-windows-10) so that your operating system knows where to find it. First, find where it was installed, and then, in Windows:
 
-1. Navigate to your local copy of the repository
+1. In the Windows taskbar, search for "environment" and select "Edit environmental variables for your account"
+2. In the top panel of the window that opens, click the "Path" user variable, then select "Edit...".
+3. You need to add two new paths, one at a time. Click "New" and enter the full path (starting with "C:\") of the directory containing Anaconda. This may, for example, be `C:\Users\user.name\AppData\Local\anaconda3`, if installed at the user level (where `user.name` is your user name), or `C:\ProgramData\anaconda3` if installed for all users.
+4. Repeat step 3 with the same path but with `\Scripts\` appended to the end. For example, `C:\ProgramData\anaconda3\Scripts\`.
+5. Click Ok (twice) to save and exit Settings.
 
-2. Create a new orphan branch and remove the git commit history that is automatically generated.
+Close and reopen your commmand line terminal. Then type `conda init` to initialize Anaconda. Finally, try the `conda --version` command again. It should work now.
 
-   ```bash
-   git checkout --orphan gh-pages
-   git rm -rf .
-   rm .gitignore
-   ```
-  
-   :::{.callout-note}
-   There may or may not be a `.gitignore` file to delete. If not, do not worry.
+### Clone the Repository
+
+The model code is [available on GitHub]({{< meta website.repo-url >}}). To retrieve it:
+
+1. Open a terminal window and change directories (`cd`) to wherever you want the code to reside. For example, `cd Documents/ageing`.
+
+   :::{.callout-important}
+   Make sure the directory exists before trying to navigate into it. You cannot move into a non-existent folder.
    :::
 
-3. We need to temporarily set the remote origin to the SEFSC documentation repo. First, note the existing remote origin URL so that we can restore it later. It can be retrieved with the command:
+2. Clone the repository into the desired directory
 
    ```bash
-   git remote -v
+   git clone https://github.com/<repoName>.git .
    ```
-  
-   Then change the remote URL to the documentation repo:
 
-   ```bash
-   git remote set-url origin https://github.com/SEFSC/SEFSC-documentation-quarto-skeleton.git
-   ```
+   if you want all of the repo contents in the current directory, or 
    
-   :::{.callout-note}
-   To find this new URL, navigate to the [SEFSC-documentation-quarto-skeleton]({{< meta website.repo-url >}}){target="_blank" rel="noopener"} repo in a web browser and click on the green "< > Code" button.
-   :::
-
-4. Make sure you're on your *local* `gh-pages` branch and then pull the contents of the `gh-pages` branch of *SEFSC-documentation-quarto-skeleton* repo
-
    ```bash
-   git checkout gh-pages
-   git pull origin gh-pages
-   ```
-   
-   Use `ls -la` to verify that you now have all of the files and directories from the skeleton repo.
-
-5. Change the local remote origin back to the original repo
-
-   ```bash
-   git remote set-url origin <old-url>
-   ```
-   
-   where `<old-url>` is the URL of the original repo retrieved in [Step 1b](#step-1b-add-a-new-orphan-branch-to-an-existing-repository).3.
-
-6. Push this new branch to the remote repo
-
-   ```bash
-   git push origin gh-pages
+   git clone https://github.com/<repoName>.git
    ```
 
-7. In a web browser, navigate to the repo to which you just added a `gh-pages` branch. Click the "Settings" tab, then "Pages" on left sidebar.
+   if you want the repo contents to be downloaded into a new subdirectory called `<repoName>`, where `<repoName>` is the name of the repository. (Note the difference between the two commands is the dot `.` at the end.) This is just personal preference.
 
-8. In the "Build and deployment" section, under "Source", select "Deploy from branch" from the dropdown menu. 
+### Create a Virtual Environment
 
-   :::{.callout-note}
-   If your repo belongs to you (as opposed to belonging to an organization), it must be a public repo for this be available.
-   :::
+Virtual environments are used to manage Python packages. Create a virtual environment specifically for this model. In a terminal window, navigate into the directory containing the model code (from the previous step). Then:
 
-9. Under "Branch", select "gh-pages" from the dropdown menu. Leave the directory as "/(root)" and click "Save".
+```bash
+conda env create --name scaleageing --file=environment.yml
+```
 
-   <img width="540" alt="image" src="https://user-images.githubusercontent.com/2545978/196808262-3d2262be-b9b5-4897-bba5-fc2f056dd335.png">
+This command creates a virtual environment called `scaleageing` and downloads and installs all of the package dependencies listed in the `environment.yml` file contained in the repo.
 
-10. While still within "Settings", click "Actions" on the left sidebar, then "General".
+Note that this virtual environment can be named anything at all, but remember what you call it -- and keep it simple -- because it will be involked by name each time you use the model.
 
-11. Under "Workflow permissions", select "Read and write permissions" to allow GitHub Actions to modify the repository, then click "Save".
-
-    <img width="719" alt="image" src="https://user-images.githubusercontent.com/2545978/196808404-0c075fcf-db03-4516-88dd-3143b9fca475.png">
-
-12. At the top of this page, you should see a banner saying "Your site is now live at..." with the URL of your documentation page. Launch the page to be sure. It should look exactly like the [SEFSC-documentation-quarto-skeleton page](https://sefsc.github.io/SEFSC-documentation-quarto-skeleton/) but with a URL pointing to your project.
-
-13. Repeat steps 1-6, replacing "gh-pages" with "docs" to create a `docs` branch for the website files.
-
-You should now have at least three local branches: the `gh-pages` and `docs` branches you just created, and whatever branch(es) you had originally (*e.g.*,`main`, `master`, *etc.*). Verify using `git branch --all`. Likewise, your remote repository should now have new `gh-pages` and `docs` branches as well as the original branches, and they should contain a copy of the SEFSC documentation template files and subdirectories.
-
-Use `git checkout <branch-name>` to switch between branches. Everything that follows involves this new `docs` branch.
+Now that your environment is set up -- and this only needs to be done once, the first time -- we are ready to start using the model.

@@ -6,19 +6,29 @@ metadata-files:
 order: 2
 ---
 
-Much of the following is carried out using command line. In the instructions below, "command line terminal" or "terminal" refer to any command line application for the given operating system. For Windows, this is commonly Command Prompt or Windows Powershell. These use DOS commands. For UNIX users,Git Bash is a good alternative; it is included in [Git for Windows](#git) and allows UNIX commands to be used instead of DOS.
+:::{.callout-note}
+The instructions on this page only need to be carried out once. If you have aleady installed the required dependencies and created a virtual environment, skip ahead to [Using the Model](usage.qmd).
+:::
+
+Much of the following is carried out using command line. In the instructions below, "command line terminal" or "terminal" refer to any command line application for the given operating system. For Windows, this is commonly Command Prompt or Windows Powershell. These use DOS commands. For UNIX users, Git Bash is a good alternative; it is included in [Git for Windows](#git) and allows UNIX commands to be used instead of DOS.
 
 ### Software Installation
 
 #### git
 
-If the [Git CLI](https://git-scm.com/downloads) is already installed, there should be a Git Bash program in your Applications. If so, open this program and verify everything is working by typing `git --version`. This should display the version of git installed on the system.
+If the [Git CLI](https://git-scm.com/downloads) is already installed, there should be a Git Bash program in your Applications. If so, open this program and verify everything is working by typing
+
+```bash
+git --version
+```
+
+This should display the version of git installed on the system.
 
 :::{.callout-note}
 This should already be installed for all users on the Advanced Technology GPU machine.
 :::
 
-If needed, download and install the Git CLI before continuing. This does not need administrative priviledges to install at the user level. Confirm that it has been installed by opening a command line terminal and entering `git --version`.
+If needed, download and install the [Git CLI](https://git-scm.com/downloads) before continuing. This does not need administrative priviledges to install at the user level. Confirm that it has been installed by opening a command line terminal and entering `git --version`.
 
 #### conda
 
@@ -28,7 +38,7 @@ Download and install [Anaconda](https://www.anaconda.com/).
 This is already installed on the Advanced Technology GPU machine, but it may need to be set up for each user. Keep reading to learn more.
 :::
 
-Verify installation and configuration of Anaconda using a command line terminal such as Windows Command Prompt or Git Bash (installed with the Git CLI above):
+Verify installation and configuration of Anaconda using a command line terminal:
 
 ```bash
 conda --version
@@ -48,7 +58,11 @@ Close and reopen your commmand line terminal. Then type `conda init` to initiali
 
 The model code is [available on GitHub]({{< meta website.repo-url >}}). To retrieve it:
 
-1. Open a terminal window and change directories (`cd`) to wherever you want the code to reside. For example, `cd Documents/ageing`.
+1. Open a terminal window and change directories (`cd`) to wherever you want the code to reside. For example,
+
+   ```bash
+   cd Documents/ageing
+   ```
 
    :::{.callout-important}
    Make sure the directory exists before trying to navigate into it. You cannot move into a non-existent folder.
@@ -78,6 +92,6 @@ conda env create --name scaleageing --file=environment.yml
 
 This command creates a virtual environment called `scaleageing` and downloads and installs all of the package dependencies listed in the `environment.yml` file contained in the repo.
 
-Note that this virtual environment can be named anything at all, but remember what you call it -- and keep it simple -- because it will be involked by name each time you use the model.
+Note that this virtual environment can be named anything at all, but remember what you call it -- and keep it simple -- because it will be invoked by name each time you use the model.
 
-Now that your environment is set up -- and this only needs to be done once, the first time -- we are ready to start using the model.
+**Congratulations! Now that your environment is set up -- and this only needs to be done once, the first time -- we are ready to start [using the model](usage.qmd).**

@@ -1,4 +1,4 @@
 website: 
-  title: "App Name Documentation"
-  site-url: "https://sefsc.github.io/SEFSC-documentation-quarto-skeleton"
-  repo-url: "https://github.com/SEFSC/SEFSC-documentation-quarto-skeleton"
+  title: "Menhaden Ageing Model"
+  site-url: "https://MattGrossi-NOAA.github.io/FATES-BLH-ScaleAgeing"
+  repo-url: "https://github.com/MattGrossi-NOAA/FATES-BLH-ScaleAgeing"

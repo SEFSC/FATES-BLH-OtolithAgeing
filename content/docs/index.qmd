@@ -1,6 +1,5 @@
 ---
 title: Read the Docs
-order: 1
 ---
 
 {{< include ../../index.qmd >}}

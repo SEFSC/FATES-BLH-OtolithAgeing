@@ -3,7 +3,7 @@ title: Getting Started
 subtitle: Creating and configuration a Python virtual environment
 metadata-files:
   - ../../_metadata.yml
-order: 2
+order: 1
 ---
 
 :::{.callout-note}

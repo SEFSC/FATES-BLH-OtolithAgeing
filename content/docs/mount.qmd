@@ -1,0 +1,13 @@
+---
+title: Mounting a Drive
+subtitle: Accessing data stored on a remote drive
+order: 2
+---
+
+If the data to be processed are stored on a remote drive somewhere, such as in Google Shared Drive, that drive must first be "mounted" in order for it to be accessible via the operating system's file system. The Google Drive application, which is already installed on the Advanced Technology GPU machine, makes accessing personal Google drives and Google shared drives easy. One must, however, log in to authenticate access.
+
+Simply double click the Google Drive icon on the desktop and log in as normal. When asked to authenticate with two factor authentication, plug your Yubikey into your local computer and authenticate as usual. The authentication will be passed to the remote machine. Once done, your Google drive will appear in File Explorer as the "G" drive.
+
+Other drives, such as each lab's on-prem shared storage drives, are already mapped and are also accessible by their corresponding drive letters.
+
+The example in [Using the Model](usage.qmd) illustrates how to access data stored in a Google shared drive.

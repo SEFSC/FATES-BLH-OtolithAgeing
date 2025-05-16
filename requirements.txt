@@ -3,3 +3,4 @@ numpy
 markdown
 folium
 jupyter
+PyYAML

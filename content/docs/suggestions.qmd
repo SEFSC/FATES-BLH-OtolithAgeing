@@ -4,12 +4,20 @@ subtitle: Recommended modifications and improvements
 order: 4
 ---
 
-## Naming conventions
+### Naming conventions
 
-The [example execution commands](usage.qmd#an-example) illustrate the importance of giving careful consideration to file and folder names. For example, the script name -- `Scale_Ageing_Inference_Script_Image_Only.py` -- is difficult and time-consuming to type, both due its length and its use of capital letters and underscores, both of which require using two keys. While using the shift key may seem trivial, it can quickly become an annoyance when repeatedly tying commands.
+The [example execution commands](usage.qmd#an-example) illustrate the importance of giving careful consideration to file and folder names. For example, the script name `Scale_Ageing_Inference_Script_Image_Only.py` is difficult and time-consuming to type, both due its length and its use of capital letters and underscores, both of which require using two keys. While using the shift key may seem trivial, it can quickly become an annoyance when repeatedly tying commands.
 
 **It is therefore recommended that the name of the script be shortened.** An example might be `inference-images.py`.
 
-Similarly, long directory (folder) names are equally burdonsome to type. Even more annoying is having to handle special characters (including spaces), since different operating systems handle them differently. Notice, for example, that in the Bash command, all spaces must be "escaped" with a preceding backslash ("\"). Special characters are even trickier because they would need to be handled properly in the code.
+Similarly, long directory names are equally burdensome to type. Even more annoying is having to handle special characters (including spaces), since different operating systems handle them differently. Notice, for example, that in the Bash command, all spaces must be "escaped" with a preceding backslash (\\). Special characters are even trickier because they would need to be handled properly in the code.
 
-**In general, best practice is to avoid spaces and special characters altogether in file and directory names.** Consider using camelCase instead, where the first letter of each word (except the first word) is capitalized. Underscores and dashes are also commonly used in directory names. These are less frowned-upon than spaces because they do not need to be escaped.
+**In general, best practice is to avoid spaces and special characters altogether in both file and directory names.** Consider using camelCase instead, where the first letter of each word (except the first word) is capitalized. Underscores and dashes are also commonly used in directory names. These are less frowned-upon than spaces because they do not need to be escaped.
+
+### Additional scripts
+
+Additional scripts, such as training scripts, should be added to the repo and this documentation once available.
+
+### Demonstration notebooks
+
+Once complete, Jupyter notebooks demonstrating the model may be added to this documentation.

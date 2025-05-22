@@ -34,6 +34,7 @@ where
 | `<csv_dir>`   | (str) full path to desired directory to which the CSV output will be written                          |
 | `<model_dir>` | (str) full path to the directory containing the trained model weights (*i.e.*, the `best_model.pth` file) |
 
+<br>
 For more information, including an execution example, see [Using the Model](content/docs/usage.qmd) in the docs.
 
 ## Options

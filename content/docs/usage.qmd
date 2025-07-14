@@ -39,7 +39,7 @@ Directories are handled slightly differently in DOS (Windows Command Prompt, Pow
 #### Git Bash
 
 ```bash
-python Scale_Aging_Inference_Script_Image_Only.py G:/Shared\ drives/NMFS\ SEFSC\ FATES\ Advanced\ Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic\ menhaden\ to\ be\ tested\ w\ active\ learning/subset G:/Shared\ drives/NMFS\ SEFSC\ FATES\ Advanced\ Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic\ menhaden\ to\ be\ tested\ w\ active\ learning/model_age_predictions C:/Users/user.name/Documents/GitHubRepos/FATES-BLH-ScaleAgeing/scripts
+python Scale_Aging_Inference_Script_Image_Only.py "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/subset" "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/model_age_predictions" "C:/Users/user.name/Documents/GitHubRepos/FATES-BLH-ScaleAgeing/scripts"
 ```
 
 #### Command Prompt

@@ -45,7 +45,7 @@ No options are available at this time. All arguments above are currently require
 
 * [Anaconda](https://www.anaconda.com/) (for virtual environment implementation)
 * [Git CLI](https://git-scm.com/downloads) (for repository cloning)
-* Python >=3.9
+* Python >= 3.9
 * torch ==1.12.1
 * torchvision == 0.13.1
 * torchaudio == 0.12.1
@@ -77,8 +77,7 @@ See [Getting Started](content/docs/setup.qmd) for installation and setup instruc
 <br>
 
 :::{.callout-important title=License}
-Software code created by U.S. Government employees is not subject to copyright in the United States (17 U.S.C. §105). The United States/Department of Commerce reserve all rights to seek and obtain copyright protection in countries other than the United States for Software authored in its entirety by the Department of Commerce. To this end, the Department 
-of Commerce hereby grants to Recipient a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.
+Software code created by U.S. Government employees is not subject to copyright in the United States (17 U.S.C. §105). The United States/Department of Commerce reserve all rights to seek and obtain copyright protection in countries other than the United States for Software authored in its entirety by the Department of Commerce. To this end, the Department of Commerce hereby grants to Recipient a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.
 :::
 
 :::{.callout-important title=Disclaimer}

@@ -7,7 +7,7 @@ order: 1
 ---
 
 :::{.callout-note}
-The instructions on this page only need to be carried out once. If you have aleady installed the required dependencies and created a virtual environment, skip ahead to [Using the Model](usage.qmd).
+The instructions on this page only need to be carried out once. If you have already installed the required dependencies and created a virtual environment, skip ahead to [Using the Model](usage.qmd).
 :::
 
 Much of the following is carried out using command line. In the instructions below, "command line terminal" or "terminal" refer to any command line application for the given operating system. For Windows, this is commonly Command Prompt or Windows Powershell. These use DOS commands. For UNIX users, Git Bash is a good alternative; it is included in [Git for Windows](#git) and allows UNIX commands to be used instead of DOS.
@@ -28,7 +28,7 @@ This should display the version of git installed on the system.
 This should already be installed for all users on the Advanced Technology GPU machine.
 :::
 
-If needed, download and install the [Git CLI](https://git-scm.com/downloads) before continuing. This does not need administrative priviledges to install at the user level. Confirm that it has been installed by opening a command line terminal and entering `git --version`.
+If needed, download and install the [Git CLI](https://git-scm.com/downloads) before continuing. This does not need administrative privileges to install at the user level. Confirm that it has been installed by opening a command line terminal and entering `git --version`.
 
 #### conda
 
@@ -52,7 +52,7 @@ If Anaconda is configured properly, this should print the version of the install
 4. Repeat step 3 with the same path but with `\Scripts\` appended to the end. For example, `C:\ProgramData\anaconda3\Scripts\`.
 5. Click Ok (twice) to save and exit Settings.
 
-Close and reopen your commmand line terminal. Then type `conda init` to initialize Anaconda. Finally, try the `conda --version` command again. It should work now.
+Close and reopen your command line terminal. Then type `conda init` to initialize Anaconda. Finally, try the `conda --version` command again. It should work now.
 
 ### Clone the Repository
 
@@ -71,16 +71,16 @@ The model code is [available on GitHub]({{< meta website.repo-url >}}). To retri
 2. Clone the repository into the desired directory
 
    ```bash
-   git clone https://github.com/<repoName>.git .
+   git clone {{< meta website.repo-url >}} .
    ```
 
    if you want all of the repo contents in the current directory, or 
    
    ```bash
-   git clone https://github.com/<repoName>.git
+   git clone {{< meta website.repo-url >}}
    ```
 
-   if you want the repo contents to be downloaded into a new subdirectory called `<repoName>`, where `<repoName>` is the name of the repository. (Note the difference between the two commands is the dot `.` at the end.) This is just personal preference.
+   if you want the repo contents to be downloaded into a new subdirectory called `{{< meta repo.name >}}`. This is just personal preference. (Note the difference between the two commands is the dot `.` at the end.)
 
 ### Create a Virtual Environment
 

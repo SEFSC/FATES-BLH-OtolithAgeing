@@ -2,3 +2,5 @@ website:
   title: "Menhaden Ageing Model"
   site-url: "https://MattGrossi-NOAA.github.io/FATES-BLH-ScaleAgeing"
   repo-url: "https://github.com/MattGrossi-NOAA/FATES-BLH-ScaleAgeing"
+repo:
+  name: "FATES-BLH-ScaleAgeing"

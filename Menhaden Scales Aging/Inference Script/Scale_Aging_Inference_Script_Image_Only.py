@@ -16,63 +16,7 @@ from torch.utils.data import DataLoader
 from torchvision.models import resnet18, ResNet18_Weights
 from tqdm import tqdm
 import torch
-
-def crop_and_pad(image, kernel_size = 10, threshold=100, pad=0.05, bottom_pad = 0.35):
-    #Binary threshold
-    gray_image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    ret, thresh = cv.threshold(gray_image,threshold,255,cv.THRESH_BINARY)
-    kernel = np.ones((kernel_size,kernel_size),np.uint8)
-    
-    #Morphological operation
-    opening = cv.morphologyEx(thresh, cv.MORPH_OPEN, kernel)
-    closing = cv.morphologyEx(opening, cv.MORPH_CLOSE, kernel)
-    
-    #Find Contours
-    contours, hierarchy = cv.findContours(closing, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
-    if(len(contours) > 0):
-        maxidx = 0
-        maxarea = 0
-        for i in range(len(contours)):
-            contour = contours[i]
-            if cv.contourArea(contour) > maxarea:
-                maxarea = cv.contourArea(contour)
-                maxidx = i
-        x,y,w,h = cv.boundingRect(contours[maxidx])
-        
-    #Crop and Pad
-    xmargin = pad
-    ymargin_top = pad
-    ymargin_bot = bottom_pad
-    y_max, x_max,c = image.shape
-    x_new = int(max(0,x-w*xmargin))
-    y_new = int(max(0,y-h*ymargin_top))
-    w_new = int(min(w*(1+xmargin*2),x_max-x_new))
-    h_new = int(min(h*(1+ymargin_top+ymargin_bot), y_max-y_new))
-    crop = image[y_new:y_new+h_new,x_new:x_new+w_new,:]
-    
-    c_h, c_w, c = crop.shape
-    left, right, top, bottom = 0,0,0,0
-    if(c_h>c_w):
-        difference = c_h-c_w
-        left = int(difference/2)
-        right = int(difference/2)
-    if(c_h<c_w):
-        difference = c_w-c_h
-        top = int(difference/2)
-        bottom = int(difference/2)
-    crop_pad = cv.copyMakeBorder(crop, top, bottom, left, right, cv.BORDER_REPLICATE)
-
-    return crop
-
-def preprocess_folder(image_dir, output_dir, extension = ".tif", kernel_size = 10, threshold=100, pad=0.05, bottom_pad = 0.35):
-    if(not os.path.exists(output_dir)):
-        os.mkdir(output_dir)
-    for file in os.listdir(image_dir):
-        if file.endswith(extension):
-            image = cv.imread(image_dir+"/"+file)
-            cropped_image = crop_and_pad(image, kernel_size, threshold, pad, bottom_pad)
-            cv.imwrite(output_dir+"/"+os.path.splitext(file)[0]+".jpg",cropped_image)
-
+import yaml
 
 class FishTestDataset(Dataset):
     def __init__(self, image_dir, transform=None):
@@ -102,15 +46,17 @@ class FishTestDataset(Dataset):
         
 
 parser = argparse.ArgumentParser()
-parser.add_argument("raw_dir", help="directory of raw scale images to inference on")
-parser.add_argument("out_dir", help="where to save the corresponding predictions")
-parser.add_argument("model_path", help="where to find trained model weights")
+parser.add_argument("--config_path", help="path to configuration yaml file")
+
 args = parser.parse_args()
 
-preprocess_folder(args.raw_dir, "cropped")
+        
+with open(args.config_path, 'r') as file:
+    config = yaml.safe_load(file)
 
 
-data_dir = 'cropped'
+data_dir = config["img_path"]
+
 data_transforms = transforms.Compose(
         [
             transforms.Resize(224),
@@ -126,7 +72,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 model = resnet18(num_classes = 5)
 
 # Load model - TODO
-model.load_state_dict(torch.load("best_model.pth"))
+model.load_state_dict(torch.load(config["model_path"]))
 
 model.eval()    
 model.to(device)
@@ -134,7 +80,7 @@ model.to(device)
 import torch
 
 output_path = "inference_results.csv"
-file = open(args.out_dir, 'w')
+file = open(config["out_path"], 'w')
 file.write("Image Name, Predicted Age\n")
 
 for images, img_path in tqdm(test_loader):

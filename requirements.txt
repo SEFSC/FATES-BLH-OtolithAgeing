@@ -6,3 +6,6 @@ matplotlib
 pandas
 jupyter
 tqdm
+pycocotools
+onnxruntime
+onnx

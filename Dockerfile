@@ -7,12 +7,14 @@ COPY test_cuda.py .
 
 # If a GPU is available:
 RUN pip install --upgrade pip && \
+    pip install git+https://github.com/facebookresearch/segment-anything.git && \
     pip install --no-cache-dir -r requirements.txt
 RUN conda install cudatoolkit=11.3 -c pytorch
 RUN python test_cuda.py
 
 # Otherwise:
 # RUN pip install --upgrade pip && \
+#     pip install git+https://github.com/facebookresearch/segment-anything.git && \
 #     pip install --no-cache-dir -r requirements.txt && \
 #     pip install cpuonly -c pytorch
 

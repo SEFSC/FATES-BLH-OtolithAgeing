@@ -522,7 +522,7 @@ Note
 </section>
 <section id="clone-the-repository" class="level3">
 <h3 class="anchored" data-anchor-id="clone-the-repository">Clone the Repository</h3>
-<p>The model code is <a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing">available on GitHub</a>. To retrieve it:</p>
+<p>Most of the model code is <a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing">available on GitHub</a>. To retrieve it:</p>
 <ol type="1">
 <li><p>Open a terminal window and change directories (<code>cd</code>) to wherever you want the code to reside. For example,</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Documents/ageing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -545,6 +545,7 @@ Important
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/SEFSC/FATES-BLH-OtolithAgeing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>if you want the repo contents to be downloaded into a new subdirectory called <code>FATES-BLH-OtolithAgeing</code>. This is just personal preference. (Note the difference between the two commands is the dot <code>.</code> at the end.)</p></li>
 </ol>
+<p>This model has the option of using a <a href="https://arxiv.org/abs/2408.00714">Segment Anything Model</a> (SAM) to find the scale within each image. To use this method, one must <a href="https://github.com/facebookresearch/segment-anything?tab=readme-ov-file#model-checkpoints">download a model checkpoint</a>. The <a href="https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth">ViT-B model</a> is recommended. For convenience, consider saving this file in the same directory as model script, for example <code>~/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script</code>.</p>
 </section>
 <section id="create-a-virtual-environment" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-virtual-environment">Create a Virtual Environment</h3>

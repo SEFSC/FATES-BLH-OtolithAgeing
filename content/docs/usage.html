@@ -425,7 +425,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#an-example" id="toc-an-example" class="nav-link active" data-scroll-target="#an-example">An Example</a></li>
+  <li><a href="#configuration-file" id="toc-configuration-file" class="nav-link active" data-scroll-target="#configuration-file">Configuration File</a></li>
+  <li><a href="#running-the-model" id="toc-running-the-model" class="nav-link" data-scroll-target="#running-the-model">Running the model</a></li>
+  <li><a href="#an-example" id="toc-an-example" class="nav-link" data-scroll-target="#an-example">An Example</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/blob/docs/content/docs/usage.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -453,12 +455,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Running the Menhaden Ageing Model is straightforward and only requires one command. You will, however, <a href="../../index.html#usage">need three things</a> on hand:</p>
+<p>Running the Menhaden Ageing Model is straightforward and only requires one command. You will, however, need to modify a <code>configurations.yml</code> file. This is explained in more detail below.</p>
+<section id="configuration-file" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-file">Configuration File</h3>
+<p>A <code>configurations.yml</code> file is an easy way to control model performance. The most important settings in this file to pay attention to are:</p>
 <ol type="1">
 <li>The directory containing the scale images to process</li>
 <li>The directory where you want the model output file to be written</li>
-<li>The directory containing the trained model weights (<em>i.e.</em>, the <code>best_model.pth</code> file). If you simply cloned the repo and have not moved anything around, this file will be alongside the model script in the <code>scripts</code> subdirectory in the cloned repository.</li>
+<li>The directory containing the trained model weights (<em>i.e.</em>, the <code>best_model.pth</code> file) and, if desired, the Segment Anything Model weights. If you simply cloned the repo and have not moved anything around, the trained model weights file will be alongside the model script in the <code>scripts</code> subdirectory in the cloned repository. The SAM weights will be wherever you saved them upon <a href="../../content/docs/setup.html#clone-the-repository">downloading them</a>.</li>
 </ol>
+<p>Absolute file paths are recommended…</p>
+<p><em>To be continued.</em></p>
+</section>
+<section id="running-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="running-the-model">Running the model</h3>
 <p>First we need to activate the virtual environment we <a href="../../content/docs/setup.html#create-a-virtual-environment">previously configured</a>. In a terminal window, type:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate scaleageing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -478,6 +488,7 @@ Tip
 <p>Run the model as described in the <a href="../../index.html#usage">usage instructions</a>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Aging_Inference_Script_Image_Only.py <span class="op">&lt;</span>img_dir<span class="op">&gt;</span> <span class="op">&lt;</span>csv_dir<span class="op">&gt;</span> <span class="op">&lt;</span>model_dir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>where <code>&lt;img_dir&gt;</code> is the full path to the directory containing the scale images to process (#1 above), <code>&lt;csv_dir&gt;</code> is the full path to desired directory to which the CSV output will be written (#2 above), and <code>&lt;model_dir&gt;</code> is the full path to the directory containing the <code>best_model.pth</code> model weights (#3 above).</p>
+</section>
 <section id="an-example" class="level3">
 <h3 class="anchored" data-anchor-id="an-example">An Example</h3>
 <p>Directories are handled slightly differently in DOS (Windows Command Prompt, Powershell) than UNIX (Git Bash). For example, running on the Advanced Technology GPU machine might to process 2024 menhaden data might look like this:</p>

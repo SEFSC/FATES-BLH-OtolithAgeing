@@ -1,6 +1,6 @@
 website: 
-  title: "Menhaden Ageing Model"
-  site-url: "https://MattGrossi-NOAA.github.io/FATES-BLH-ScaleAgeing"
-  repo-url: "https://github.com/MattGrossi-NOAA/FATES-BLH-ScaleAgeing"
+  title: "Fish Ageing Models"
+  site-url: "https://sefsc.github.io/FATES-BLH-OtolithAgeing"
+  repo-url: "https://github.com/SEFSC/FATES-BLH-OtolithAgeing"
 repo:
-  name: "FATES-BLH-ScaleAgeing"
+  name: "FATES-BLH-OtolithAgeing"

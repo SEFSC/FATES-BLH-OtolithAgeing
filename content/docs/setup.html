@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Getting Started – Menhaden Ageing Model</title>
+<title>Getting Started – Fish Ageing Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -282,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Menhaden Ageing Model</span>
+    <span class="navbar-title">Fish Ageing Models</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -429,7 +429,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#clone-the-repository" id="toc-clone-the-repository" class="nav-link" data-scroll-target="#clone-the-repository">Clone the Repository</a></li>
   <li><a href="#create-a-virtual-environment" id="toc-create-a-virtual-environment" class="nav-link" data-scroll-target="#create-a-virtual-environment">Create a Virtual Environment</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MattGrossi-NOAA/FATES-BLH-ScaleAgeing/blob/docs/content/docs/setup.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/MattGrossi-NOAA/FATES-BLH-ScaleAgeing/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/blob/docs/content/docs/setup.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -522,7 +522,7 @@ Note
 </section>
 <section id="clone-the-repository" class="level3">
 <h3 class="anchored" data-anchor-id="clone-the-repository">Clone the Repository</h3>
-<p>The model code is <a href="https://github.com/MattGrossi-NOAA/FATES-BLH-ScaleAgeing">available on GitHub</a>. To retrieve it:</p>
+<p>The model code is <a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing">available on GitHub</a>. To retrieve it:</p>
 <ol type="1">
 <li><p>Open a terminal window and change directories (<code>cd</code>) to wherever you want the code to reside. For example,</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Documents/ageing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -540,10 +540,10 @@ Important
 </div>
 </div></li>
 <li><p>Clone the repository into the desired directory</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/MattGrossi-NOAA/FATES-BLH-ScaleAgeing .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/SEFSC/FATES-BLH-OtolithAgeing .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>if you want all of the repo contents in the current directory, or</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/MattGrossi-NOAA/FATES-BLH-ScaleAgeing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>if you want the repo contents to be downloaded into a new subdirectory called <code>FATES-BLH-ScaleAgeing</code>. This is just personal preference. (Note the difference between the two commands is the dot <code>.</code> at the end.)</p></li>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/SEFSC/FATES-BLH-OtolithAgeing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>if you want the repo contents to be downloaded into a new subdirectory called <code>FATES-BLH-OtolithAgeing</code>. This is just personal preference. (Note the difference between the two commands is the dot <code>.</code> at the end.)</p></li>
 </ol>
 </section>
 <section id="create-a-virtual-environment" class="level3">
@@ -643,7 +643,7 @@ Important
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/MattGrossi-NOAA\.github\.io\/FATES-BLH-ScaleAgeing");
+        var filterRegex = new RegExp("https:\/\/sefsc\.github\.io\/FATES-BLH-OtolithAgeing");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -990,7 +990,7 @@ Important
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MattGrossi-NOAA/FATES-BLH-ScaleAgeing/blob/docs/content/docs/setup.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/MattGrossi-NOAA/FATES-BLH-ScaleAgeing/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/blob/docs/content/docs/setup.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p><a href="https://noaa.gov">NOAA</a> <br> <a href="https//fisheries.noaa.gov">NOAA Fisheries</a> <br> <a href="https://www.fisheries.noaa.gov/contact/southeast-fisheries-science-center">Southeast Fisheries Science Center</a></p>
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>. © CC-1.0</p>

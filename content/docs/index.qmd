@@ -1,6 +1,86 @@
 ---
-title: Read the Docs
+title: "Menhaden Ageing Model"
+subtitle: "An innovative, state-of-the-art deep learning model for automatically ageing menhaden samples using scale images"
+page-layout: full
 order: 1
 ---
 
-{{< include ../../index.qmd >}}
+This Menhaden Ageing Model provides an innovative method for automatically estimating Menhaden age using scale images. Built upon state-of-the-art deep learning algorithms, it enables rapid generation of fish age predictions by simply pointing to a directory containing magnified images of scale samples.
+
+## About
+
+The internal workflow is as follows:
+
+1. Raw images are first converted to grayscale such that every image pixel contains a value [0, 255]. These grayscale images are then processed using [binary thresholding](https://en.wikipedia.org/wiki/Thresholding_(image_processing)) image processing techniques by which all pixels whose values are above a certain threshold are set to 1 while the rest are set to 0. This allows the scale itself to be distinguished from the image background. The threshold value used for menhaden, based on trail and error, is 100.
+2. Imperfections in the new masked images are cleaned up using [morphological opening](https://en.wikipedia.org/wiki/Opening_(morphology)) and [closing](https://en.wikipedia.org/wiki/Closing_(morphology)) techniques to remove undesired background noise and capture any missed portions of the scale.
+3. The contours of the masked shape are identified in order to extract the object of interest (*i.e.*, the scale).
+4. The scale is then cropped out of the original image and padded to make it square.
+5. The new square image containing just the scale of interest is passed to a trained custom [residual neural network](https://en.wikipedia.org/wiki/Residual_neural_network) (resnet) deep learning classification model. Model output is saved to a CSV file.
+
+Implementation instructions follow. Be sure to [set up and configure a Python environment](content/docs/setup.qmd) before the first use.
+
+## Usage
+
+The full model is wrapped inside a single Python script called `Scale_Aging_Inference_Script_Image_Only.py`. To execute, run the following command in a command line terminal:
+
+```bash
+python Scale_Aging_Inference_Script_Image_Only.py <img_dir> <csv_dir> <model_dir>
+```
+
+where
+
+|               |                                                                                                       |
+| :------------ | :---------------------------------------------------------------------------------------------------- |
+| `<img_dir>`   | (str) full path to the directory containing the scale images to process                                   |
+| `<csv_dir>`   | (str) full path to desired directory to which the CSV output will be written                          |
+| `<model_dir>` | (str) full path to the directory containing the trained model weights (*i.e.*, the `best_model.pth` file) |
+
+<br>
+For more information, including an execution example, see [Using the Model](content/docs/usage.qmd) in the docs.
+
+## Options
+
+No options are available at this time. All arguments above are currently required.
+
+## Dependencies
+
+* [Anaconda](https://www.anaconda.com/) (for virtual environment implementation)
+* [Git CLI](https://git-scm.com/downloads) (for repository cloning)
+* Python >= 3.9
+* torch ==1.12.1
+* torchvision == 0.13.1
+* torchaudio == 0.12.1
+* opencv-python
+* pandas
+* tqdm
+
+#### Recommendations
+
+* matplotlib (data plotting in Python)
+* jupyter (viewing Jupyter notebook demonstrations provided in the GitHub repo)
+
+See [Getting Started](content/docs/setup.qmd) for installation and setup instructions.
+
+## Release Notes
+
+<details>
+  <summary>
+    <b> Version History </b>
+  </summary>
+  <ul>
+    <li> <b>2025.0.1 (BETA)</b> (May 2025): Initial version for testing with the following functionality:
+      <ul>
+        <li> Run via command line with image, output, and model directories passed as required arguments </li>
+      </ul>
+  </ul>
+</details>
+
+<br>
+
+:::{.callout-important title=License}
+Software code created by U.S. Government employees is not subject to copyright in the United States (17 U.S.C. §105). The United States/Department of Commerce reserve all rights to seek and obtain copyright protection in countries other than the United States for Software authored in its entirety by the Department of Commerce. To this end, the Department of Commerce hereby grants to Recipient a royalty-free, nonexclusive license to use, copy, and create derivative works of the Software outside of the United States.
+:::
+
+:::{.callout-important title=Disclaimer}
+This software is a scientific product and is not official communication of the National Oceanic and Atmospheric Administration, or the United States Department of Commerce. All NOAA software and project code is provided on an "as is" basis and the user assumes responsibility for its use. Any claims against the Department of Commerce or Department of Commerce bureaus stemming from the use of this software will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.
+:::

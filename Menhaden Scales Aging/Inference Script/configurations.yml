@@ -15,7 +15,7 @@ input_type: ".tif"
 output_type: ".jpg"
 
 # scale segmentation options are "binary" for binary thresholding and "sam" for Segment Anything
-segment: "binary"
+segment: "sam"
 
 
 # -----Binary Threshold segmentation parameters-----

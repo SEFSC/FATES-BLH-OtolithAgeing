@@ -56,7 +56,7 @@ Close and reopen your command line terminal. Then type `conda init` to initializ
 
 ### Clone the Repository
 
-The model code is [available on GitHub]({{< meta website.repo-url >}}). To retrieve it:
+Most of the model code is [available on GitHub]({{< meta website.repo-url >}}). To retrieve it:
 
 1. Open a terminal window and change directories (`cd`) to wherever you want the code to reside. For example,
 
@@ -81,6 +81,8 @@ The model code is [available on GitHub]({{< meta website.repo-url >}}). To retri
    ```
 
    if you want the repo contents to be downloaded into a new subdirectory called `{{< meta repo.name >}}`. This is just personal preference. (Note the difference between the two commands is the dot `.` at the end.)
+
+This model has the option of using a [Segment Anything Model](https://arxiv.org/abs/2408.00714) (SAM) to find the scale within each image. To use this method, one must [download a model checkpoint](https://github.com/facebookresearch/segment-anything?tab=readme-ov-file#model-checkpoints). The [ViT-B model](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth) is recommended. For convenience, consider saving this file in the same directory as model script, for example `~/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script`.
 
 ### Create a Virtual Environment
 

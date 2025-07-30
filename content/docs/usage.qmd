@@ -6,11 +6,21 @@ metadata-files:
 order: 3
 ---
 
-Running the Menhaden Ageing Model is straightforward and only requires one command. You will, however, [need three things](../../index.qmd#usage) on hand:
+Running the Menhaden Ageing Model is straightforward and only requires one command. You will, however, need to modify a `configurations.yml` file. This is explained in more detail below.
+
+### Configuration File
+
+A `configurations.yml` file is an easy way to control model performance. The most important settings in this file to pay attention to are:
 
 1. The directory containing the scale images to process
 2. The directory where you want the model output file to be written
-3. The directory containing the trained model weights (*i.e.*, the `best_model.pth` file). If you simply cloned the repo and have not moved anything around, this file will be alongside the model script in the `scripts` subdirectory in the cloned repository.
+3. The directory containing the trained model weights (*i.e.*, the `best_model.pth` file) and, if desired, the Segment Anything Model weights. If you simply cloned the repo and have not moved anything around, the trained model weights file will be alongside the model script in the `scripts` subdirectory in the cloned repository. The SAM weights will be wherever you saved them upon [downloading them](setup.qmd#clone-the-repository).
+
+Absolute file paths are recommended...
+
+*To be continued.*
+
+### Running the model
 
 First we need to activate the virtual environment we [previously configured](setup.qmd#create-a-virtual-environment). In a terminal window, type:
 

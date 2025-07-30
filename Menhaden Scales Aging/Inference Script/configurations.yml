@@ -3,10 +3,10 @@
 #-----------------------------------------------------------------------------------------------------
 
 # path to raw images
-raw_img_pth: "Raw Image"
+raw_img_pth: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images"
 
 # path to save the preprocessed images
-preprocessed_img_pth: "cropped"
+preprocessed_img_pth: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
 
 # input image type
 input_type: ".tif"
@@ -38,7 +38,7 @@ downsample: 0.5
 sam_model_type: "vit_b"
 
 # SAM model weights path.  Make sure this matches the model type.
-sam_weights_path: "sam_vit_b_01ec64.pth"
+sam_weights_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/sam_vit_b_01ec64.pth"
 
 
 # -----Cropping parameters-----
@@ -60,13 +60,10 @@ invert: False
 #-----------------------------------------------------------------------------------------------------
 
 # path to preprocessed image folder
-img_path: "cropped"
+img_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
 
-# model path
-model_path: "best_model.pth"
+# model path (directory and file name of weights file)
+model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Chapter 2 - Inference on Images/best_model.pth"
 
-# output path for results
-out_path: "result.csv"
-
-
-
+# output path for results (directory and file name)
+out_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/model_predictions/inference_results.csv"

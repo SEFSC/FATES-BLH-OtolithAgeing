@@ -3,10 +3,13 @@
 #-----------------------------------------------------------------------------------------------------
 
 # path to raw images
+# raw_img_pth: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 10 (VA) Images"
 raw_img_pth: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images"
 
 # path to save the preprocessed images
-preprocessed_img_pth: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
+# preprocessed_img_pth: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 10 (VA) Images/cropped"
+preprocessed_img_pth: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/cropped"
+
 
 # input image type
 input_type: ".tif"
@@ -50,9 +53,9 @@ bottom_pad: 0.4
 # -----Normalization options-----
 # After cropping and padding, there is an additional option to normlize the image to normalize the image.  The options are "none", "he" for histogram equalization,
 # and "clahe" for Contrast Limited Adaptive Histogram Equalization
-normalization: "none"
+normalization: "he"
 # Option to invert the pixel values in grayscale before normalization.
-invert: False
+invert: True
 
 
 #-----------------------------------------------------------------------------------------------------
@@ -60,7 +63,8 @@ invert: False
 #-----------------------------------------------------------------------------------------------------
 
 # path to preprocessed image folder
-img_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
+# img_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 10 (VA) Images/cropped"
+img_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/cropped"
 
 # model path (directory and file name of weights file)
 # model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/best_model_images.pth"

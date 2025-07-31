@@ -3,7 +3,7 @@
 #-----------------------------------------------------------------------------------------------------
 
 # path to raw images
-raw_img_pth: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images"
+raw_img_pth: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images"
 
 # path to save the preprocessed images
 preprocessed_img_pth: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
@@ -63,7 +63,8 @@ invert: False
 img_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
 
 # model path (directory and file name of weights file)
-model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Chapter 2 - Inference on Images/best_model.pth"
+# model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/best_model_images.pth"
+model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/best_model_images_eq.pth"
 
 # output path for results (directory and file name)
 out_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/model_predictions/inference_results.csv"

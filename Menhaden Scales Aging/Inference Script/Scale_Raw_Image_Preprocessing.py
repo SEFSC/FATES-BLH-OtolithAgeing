@@ -192,6 +192,7 @@ def preprocess_folder(image_dir, output_dir, seg_opt="binary", extension = ".tif
                 if(invert):
                     cropped_image = 255-cropped_image
                 cropped_image = cv.equalizeHist(cropped_image)
+                cropped_image = cv.cvtColor(cropped_image, cv.COLOR_GRAY2BGR)
                 
             elif(normalization =="clahe"):
                 cropped_image = cv.cvtColor(cropped_image, cv.COLOR_BGR2GRAY)
@@ -199,8 +200,9 @@ def preprocess_folder(image_dir, output_dir, seg_opt="binary", extension = ".tif
                     cropped_image = 255-cropped_image
                 clahe = cv.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
                 cropped_image = clahe.apply(cropped_image)
+                cropped_image = cv.cvtColor(cropped_image, cv.COLOR_GRAY2BGR)
 
-
+            
             cv.imwrite(output_dir+"/"+os.path.splitext(file)[0]+out_type,cropped_image)
 
 parser = argparse.ArgumentParser()

@@ -29,7 +29,7 @@ binary_threshold: 100
 # -----SAM segmentation parameters-----
 # How many points to use for automatic segmentation of scales with SAM.  This should be adjusted based on size of object of interest with respect to the entire image.
 # In general, you want number of points to be > ratio of image size/object size for the smallest object of interest.  Having too many points though could greatly increase processing time.
-points_per_side: 8
+points_per_side: 16
 
 # Threshold for whether to include pixel in object mask.  If the mask is too large, increase the score threshold and vice versa if the mask is too small.
 stability_score_thresh: 0.93
@@ -53,7 +53,7 @@ bottom_pad: 0.4
 # -----Normalization options-----
 # After cropping and padding, there is an additional option to normlize the image to normalize the image.  The options are "none", "he" for histogram equalization,
 # and "clahe" for Contrast Limited Adaptive Histogram Equalization
-normalization: "he"
+normalization: "clahe"
 # Option to invert the pixel values in grayscale before normalization.
 invert: True
 

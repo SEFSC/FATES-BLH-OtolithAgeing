@@ -1,69 +1,82 @@
 #-----------------------------------------------------------------------------------------------------
-# Config for preprocesssing scale images (crop and pad)
+# Configuration for pre-processsing scale images (crop, pad, and normalization)
 #-----------------------------------------------------------------------------------------------------
 
-# path to raw images
-raw_img_pth: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images"
+# -----Paths and general options-----
+# Path to raw images. Best to include the full path in quotations.
+# Example: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images"
+raw_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images"
 
-# path to save the preprocessed images
-preprocessed_img_pth: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
+# Path to save the processed images. Best to include the full path in quotations and to use a dedicated folder.
+# Example: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
+preprocessed_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
 
-# input image type
+# Input image type
 input_type: ".tif"
 
-# output image type
+# Output image type (should not need to be changed)
 output_type: ".jpg"
 
-# scale segmentation options are "binary" for binary thresholding and "sam" for Segment Anything
+# Scale segmentation options are "binary" for binary thresholding and "sam" for Segment Anything Model (SAM)
+# Binary thresholding should work fine if images are high contrast with light scales on a dark background.
+# SAM is more robust to variable image conditions but requires more processing time and a GPU.
 segment: "sam"
 
 
 # -----Binary Threshold segmentation parameters-----
-# binary threshold pixel value for differentiation between foreground (scale) and background
+# Binary threshold pixel value for differentiation between foreground (scale) and background.
+# Default: 100.
 binary_threshold: 100
 
 
-# -----SAM segmentation parameters-----
-# How many points to use for automatic segmentation of scales with SAM.  This should be adjusted based on size of object of interest with respect to the entire image.
-# In general, you want number of points to be > ratio of image size/object size for the smallest object of interest.  Having too many points though could greatly increase processing time.
+# -----Segment Anything Model (SAM) parameters-----
+# Number of points to use for automatic segmentation of scales with SAM. This should be adjusted based on size of object of interest with respect to the entire image.
+# In general, you want number of points to be greater than the ratio of image size/object size for the smallest object of interest. Having too many points though could greatly increase processing time.
+# Default: 16
 points_per_side: 16
 
-# Threshold for whether to include pixel in object mask.  If the mask is too large, increase the score threshold and vice versa if the mask is too small.
+# Threshold for whether to include pixels in object mask. If the mask is too large, increase the score threshold and vice versa if the mask is too small.
+# Default: 0.93
 stability_score_thresh: 0.93
 
-# Downsample image size for input to SAM to reduce processing time
+# Down-sample image size for input to SAM to reduce processing time
+# Default: 0.5 (i.e. reduce image dimensions to 50% of original size)
 downsample: 0.5
 
-# SAM model type.  Options are "vit_b", "vit_l", and "vit_h" in order of increasing size
+# SAM model type. Options are "vit_b", "vit_l", and "vit_h" in order of increasing size
+# Default: "vit_b"
 sam_model_type: "vit_b"
 
-# SAM model weights path.  Make sure this matches the model type.
+# Path to SAM model weights. Make sure this matches the model type. Best to use the full path in quotations.
 sam_weights_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/sam_vit_b_01ec64.pth"
 
 
 # -----Cropping parameters-----
-# Padding for top and sides of cropped image.  Defined as a fraction of the original cropped image size.
+# Padding for top and sides of cropped image. Defined as a fraction of the original cropped image size. Bottom padding is controlled by `bottom_pad`.
+# Default: 0.2
 pad: 0.2
-# Padding for bottom of cropped image.  This is defined separately since for scale images, the bottom is usually visually distinct from the body and may be missed in the segmentation.
+
+# Padding for bottom of cropped image. This is defined separately since for scale images, the bottom is usually visually distinct from the body and may be missed in the segmentation.
+# Default: 0.4
 bottom_pad: 0.4
 
 # -----Normalization options-----
-# After cropping and padding, there is an additional option to normlize the image to normalize the image.  The options are "none", "he" for histogram equalization,
-# and "clahe" for Contrast Limited Adaptive Histogram Equalization
+# After cropping and padding, there is an additional option to normalize the image.  The options are "none", for no normalization, "he" for histogram equalization, and "clahe" for Contrast Limited Adaptive Histogram Equalization.
 normalization: "clahe"
-# Option to invert the pixel values in grayscale before normalization.
+
+# Option to invert the pixel values in gray scale before normalization. This will make dark regions light and light regions dark.
 invert: True
 
 
 #-----------------------------------------------------------------------------------------------------
-# Config for inference 
+# Configuration for age inference 
 #-----------------------------------------------------------------------------------------------------
 
-# path to preprocessed image folder
-img_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
+# Path to preprocessed image folder. Best to include the full path in quotations. This should match `preprocessed_image_path` from the pre-processing step.
+image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
 
-# model path (directory and file name of weights file)
+# Path to model weights (directory and file name of weights file). Best to include the full path in quotations.
 model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Chapter 2 - Inference on Images/best_model.pth"
 
-# output path for results (directory and file name)
+# Path to save results (directory and file name for CSV file). Best to include the full path in quotations.
 out_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/model_predictions/inference_results.csv"

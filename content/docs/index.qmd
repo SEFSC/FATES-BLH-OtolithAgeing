@@ -54,51 +54,59 @@ All user options are contained in a config YAML file (called `configurations.yml
 
 ### Pre-Processing Options
 
-| Key                       | Description       | Notes                     |
-|---------------------------|-------------------|---------------------------|
-| `raw_image_path`          | Path to raw images | Best to include the full path in quotations. Example: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images" |
-| `preprocessed_image_path` | Path to save the processed images |  Best to include the full path in quotations and to use a dedicated folder. Example: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped" |
-| `input_type`              | Input image type | |
-| `output_type`             | Output image type | Should not need to be changed |
-| `segment`                 | Scale segmentation method: "binary" for binary thresholding and "sam" for Segment Anything Model (SAM) | Binary thresholding should work fine if images are high contrast with light scales on a dark background. SAM is more robust to variable image conditions but requires more processing time and a GPU. |
-:Paths and general options {tbl-colwidths="[20,30,50]"}
+| Key                       | Description                                     |
+|---------------------------|-------------------------------------------------|
+| `raw_image_path`          | Path to raw images. Best to include the full path in quotations. Example: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images" |
+| `preprocessed_image_path` | Path to save the processed images. Best to include the full path in quotations and to use a dedicated folder. |
+| `input_type`              | Input image type |
+| `output_type`             | Output image type. Should not need to be changed. |
+| `segment`                 | Scale segmentation method: "binary" for binary thresholding and "sam" for Segment Anything Model (SAM). Binary thresholding should work fine if images are high contrast with light scales on a dark background. SAM is more robust to variable image conditions but requires more processing time and a GPU. |
+:Paths and general options {tbl-colwidths="[25,75]"}
 
-|                         |                   |                             |
-|-------------------------|-------------------|-----------------------------|
-| `binary_threshold`      | Binary threshold pixel value for differentiation between foreground (scale) and background | Default: 100 |
-:Binary threshold segmentation parameters {tbl-colwidths="[20,30,50]"}
+<br>
 
-|                         |                   |                             |
-|-------------------------|-------------------|-----------------------------|
-| `points_per_side`       | Number of points to use for automatic segmentation of scales with SAM | This should be adjusted based on size of object of interest with respect to the entire image. In general, you want number of points to be greater than the ratio of image size/object size for the smallest object of interest. Having too many points though could greatly increase processing time. Default: 16 |
-| `stability_score_thresh` | Threshold for whether to include pixels in object mask | If the mask is too large, increase the score threshold and vice versa if the mask is too small. Default: 0.93 |
-| `downsample`            | Down-sample image size for input to SAM to reduce processing time | Default: 0.5 (i.e. reduce image dimensions to 50% of original size) |
-| `sam_model_type`        | SAM model type. Options are "vit_b", "vit_l", and "vit_h" in order of increasing size | Default: "vit_b" |
-| `sam_weights_path`      | Path to SAM model weights. Make sure this matches the model type | Best to use the full path in quotations. |
-:Segment Anything Model (SAM) parameters {tbl-colwidths="[20,30,50]"}
+|                           |                                                 |
+|---------------------------|-------------------------------------------------|
+| `binary_threshold`        | Binary threshold pixel value for differentiation between foreground (scale) and background. Default: 100 |
+:Binary threshold segmentation parameters {tbl-colwidths="[25,75]"}
 
-|                         |                   |                             |
-|-------------------------|-------------------|-----------------------------|
-| `pad`                   | Padding for top and sides of cropped image. Defined as a fraction of the original cropped image size | Bottom padding is controlled by `bottom_pad`. Default: 0.2 |
-| `bottom_pad`            | Padding for bottom of cropped image | This is defined separately since for scale images, the bottom is usually visually distinct from the body and may be missed in the segmentation. Default: 0.4 |
-:Cropping and padding parameters {tbl-colwidths="[20,30,50]"}
+<br>
 
-|                         |                   |                             |
-|-------------------------|-------------------|-----------------------------|
-| `normalization`         | Method for optionally normalizing the image after cropping and padding | Options: "none", for no normalization, "he" for histogram equalization, and "clahe" for Contrast Limited Adaptive Histogram Equalization. |
-| `invert`                | Option to invert the pixel values in gray scale before normalization | This will make dark regions light and light regions dark. |
-:Image normalization options {tbl-colwidths="[20,30,50]"}
+|                           |                                                 |
+|---------------------------|-------------------------------------------------|
+| `points_per_side`         | Number of points to use for automatic segmentation of scales with SAM. This should be adjusted based on size of object of interest with respect to the entire image. In general, you want number of points to be greater than the ratio of image size/object size for the smallest object of interest. Having too many points though could greatly increase processing time. Default: 16 |
+| `stability_score_thresh` | Threshold for whether to include pixels in object mask. If the mask is too large, increase the score threshold and vice versa if the mask is too small. Default: 0.93 |
+| `downsample`             | Down-sample image size for input to SAM to reduce processing time. Default: 0.5 (*i.e.* reduce image dimensions to 50% of original size) |
+| `sam_model_type`         | SAM model type. Options are "vit_b", "vit_l", and "vit_h" in order of increasing size. Default: "vit_b" |
+| `sam_weights_path`       | Path to SAM model weights. Make sure this matches the model type. Best to use the full path in quotations. |
+:Segment Anything Model (SAM) parameters {tbl-colwidths="[25,75]"}
+
+<br>
+
+|                           |                                                 |
+|---------------------------|-------------------------------------------------|
+| `pad`                     | Padding for top and sides of cropped image. Defined as a fraction of the original cropped image size. Bottom padding is controlled by `bottom_pad`. Default: 0.2 |
+| `bottom_pad`              | Padding for bottom of cropped image. This is defined separately since for scale images, the bottom is usually visually distinct from the body and may be missed in the segmentation. Default: 0.4 |
+:Cropping and padding parameters {tbl-colwidths="[25,75]"}
+
+<br>
+
+|                           |                                                 |
+|---------------------------|-------------------------------------------------|
+| `normalization`           | Method for optionally normalizing the image after cropping and padding. Options: "none", for no normalization, "he" for histogram equalization, and "clahe" for Contrast Limited Adaptive Histogram Equalization. |
+| `invert`                  | Option to invert the pixel values in gray scale before normalization. This will make dark regions light and light regions dark. |
+:Image normalization options {tbl-colwidths="[25,75]"}
 
 ### Age Model Options
 
 The following options control the age inference model. They are entered into the same configuration file for convenience.
 
-| Key                     | Description       | Notes                       |
-|-------------------------|-------------------|-----------------------------|
-| `image_path`            | Path to preprocessed image folder | Best to include the full path in quotations. This should match `preprocessed_image_path` from the pre-processing step. |
-| `model_path`            | Path to model weights (directory and file name of weights file) | Best to include the full path in quotations. |
-| `out_path`              | Path to save results (directory and file name for CSV file) | Best to include the full path in quotations. |
-:Configuration for age inference model {tbl-colwidths="[20,30,50]"}
+| Key                       | Description                                     |
+|---------------------------|-------------------------------------------------|
+| `image_path`              | Path to preprocessed image folder. Best to include the full path in quotations. This should match `preprocessed_image_path` from the pre-processing step. |
+| `model_path`            | Path to model weights (directory and file name of weights file). Best to include the full path in quotations. |
+| `out_path`              | Path to save results (directory and file name for CSV file). Best to include the full path in quotations. |
+:Configuration for age inference model {tbl-colwidths="[27,75]"}
 
 ::: {.callout-note title="The most important settings in this file to pay attention to are:"}
 
@@ -141,14 +149,14 @@ See [Getting Started](content/docs/setup.qmd) for installation and setup instruc
       <ul>
         <li> Run via command line with image, output, and model directories passed as required arguments </li>
       </ul>
-    </li>
+  </ul>
+  <ul>
     <li> <b>2025.0.2 (BETA)</b> (July 2025):
       <ul>
         <li> Adds optional histogram normalization (simple histogram equalization and Contrast Limited Adaptive Histogram Equalization) </li>
         <li> Separates image pre-processing and scale ageing into two separate scripts </li>
         <li> Model settings and hyperparameters, including input and output file paths, are now listed in a configuration YAML file passed as a single command line argument to both Python scripts </li>
       </ul>
-    </li>
   </ul>
 </details>
 

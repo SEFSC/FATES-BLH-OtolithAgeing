@@ -69,7 +69,7 @@ class FishTestDataset(Dataset):
         
 # Parse command line arguments. Currently only requires a path to a configuration yaml file.
 parser = argparse.ArgumentParser()
-parser.add_argument("--config_path", help="path to configuration yaml file")
+parser.add_argument("-c", "--config_path", help="path to configuration yaml file")
 args = parser.parse_args()
 
 # Open the configuration file and read in the parameters

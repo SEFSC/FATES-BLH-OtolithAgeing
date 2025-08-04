@@ -426,7 +426,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
   <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a></li>
-  <li><a href="#options" id="toc-options" class="nav-link" data-scroll-target="#options">Options</a></li>
+  <li><a href="#options" id="toc-options" class="nav-link" data-scroll-target="#options">Options</a>
+  <ul class="collapse">
+  <li><a href="#pre-processing-options" id="toc-pre-processing-options" class="nav-link" data-scroll-target="#pre-processing-options">Pre-Processing Options</a></li>
+  <li><a href="#age-model-options" id="toc-age-model-options" class="nav-link" data-scroll-target="#age-model-options">Age Model Options</a></li>
+  </ul></li>
   <li><a href="#dependencies" id="toc-dependencies" class="nav-link" data-scroll-target="#dependencies">Dependencies</a></li>
   <li><a href="#release-notes" id="toc-release-notes" class="nav-link" data-scroll-target="#release-notes">Release Notes</a></li>
   </ul>
@@ -471,34 +475,220 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="usage" class="level2">
 <h2 class="anchored" data-anchor-id="usage">Usage</h2>
-<p>The full model is wrapped inside a single Python script called <code>Scale_Aging_Inference_Script_Image_Only.py</code>. To execute, run the following command in a command line terminal:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Aging_Inference_Script_Image_Only.py <span class="op">&lt;</span>img_dir<span class="op">&gt;</span> <span class="op">&lt;</span>csv_dir<span class="op">&gt;</span> <span class="op">&lt;</span>model_dir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>where</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 88%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><code>&lt;img_dir&gt;</code></td>
-<td style="text-align: left;">(str) full path to the directory containing the scale images to process</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><code>&lt;csv_dir&gt;</code></td>
-<td style="text-align: left;">(str) full path to desired directory to which the CSV output will be written</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><code>&lt;model_dir&gt;</code></td>
-<td style="text-align: left;">(str) full path to the directory containing the trained model weights (<em>i.e.</em>, the <code>best_model.pth</code> file)</td>
-</tr>
-</tbody>
-</table>
+<p>Running the model requires two steps. First, raw images must be pre-processed in order to crop out the scale of interest from the full image, pad the cropped image to ensure the full scale is captured, and (optionally) normalize the cropped image to facilitate ageing. This is all done using the <code>Scale_Raw_Image_Preprocessing.py</code> Python script. To execute, run the following command in a command line terminal:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Raw_Image_Preprocessing.py <span class="at">--config-file</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Raw_Image_Preprocessing.py <span class="at">-c</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>where <code>&lt;config_dir&gt;</code> is the path to the configuration file containing model settings described <a href="#options">below</a>. The ageing model itself is wrapped inside a second Python script called <code>Scale_Aging_Inference_Script_Image_Only.py</code>. To execute, run the following command in a command line terminal:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Aging_Inference_Script_Image_Only.py <span class="at">--config-file</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Aging_Inference_Script_Image_Only.py <span class="at">-c</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br> For more information, including an execution example, see <a href="content/docs/usage.qmd">Using the Model</a> in the docs.</p>
 </section>
 <section id="options" class="level2">
 <h2 class="anchored" data-anchor-id="options">Options</h2>
-<p>No options are available at this time. All arguments above are currently required.</p>
+<p>All user options are contained in a config YAML file (called <code>configurations.yml</code> by default, but can be named anything) to allow easier control and greater reproducibility. Settings are entered as <code>key: value</code> pairs as described below. The first set of parameters control the image processing routine while the second set control the age model itself.</p>
+<section id="pre-processing-options" class="level3">
+<h3 class="anchored" data-anchor-id="pre-processing-options">Pre-Processing Options</h3>
+<table class="caption-top table">
+<caption>Paths and general options</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 30%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>raw_image_path</code></td>
+<td>Path to raw images</td>
+<td>Best to include the full path in quotations. Example: “G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images”</td>
+</tr>
+<tr class="even">
+<td><code>preprocessed_image_path</code></td>
+<td>Path to save the processed images</td>
+<td>Best to include the full path in quotations and to use a dedicated folder. Example: “G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped”</td>
+</tr>
+<tr class="odd">
+<td><code>input_type</code></td>
+<td>Input image type</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>output_type</code></td>
+<td>Output image type</td>
+<td>Should not need to be changed</td>
+</tr>
+<tr class="odd">
+<td><code>segment</code></td>
+<td>Scale segmentation method: “binary” for binary thresholding and “sam” for Segment Anything Model (SAM)</td>
+<td>Binary thresholding should work fine if images are high contrast with light scales on a dark background. SAM is more robust to variable image conditions but requires more processing time and a GPU.</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<caption>Binary threshold segmentation parameters</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 30%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>binary_threshold</code></td>
+<td>Binary threshold pixel value for differentiation between foreground (scale) and background</td>
+<td>Default: 100</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<caption>Segment Anything Model (SAM) parameters</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 30%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>points_per_side</code></td>
+<td>Number of points to use for automatic segmentation of scales with SAM</td>
+<td>This should be adjusted based on size of object of interest with respect to the entire image. In general, you want number of points to be greater than the ratio of image size/object size for the smallest object of interest. Having too many points though could greatly increase processing time. Default: 16</td>
+</tr>
+<tr class="even">
+<td><code>stability_score_thresh</code></td>
+<td>Threshold for whether to include pixels in object mask</td>
+<td>If the mask is too large, increase the score threshold and vice versa if the mask is too small. Default: 0.93</td>
+</tr>
+<tr class="odd">
+<td><code>downsample</code></td>
+<td>Down-sample image size for input to SAM to reduce processing time</td>
+<td>Default: 0.5 (i.e.&nbsp;reduce image dimensions to 50% of original size)</td>
+</tr>
+<tr class="even">
+<td><code>sam_model_type</code></td>
+<td>SAM model type. Options are “vit_b”, “vit_l”, and “vit_h” in order of increasing size</td>
+<td>Default: “vit_b”</td>
+</tr>
+<tr class="odd">
+<td><code>sam_weights_path</code></td>
+<td>Path to SAM model weights. Make sure this matches the model type</td>
+<td>Best to use the full path in quotations.</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<caption>Cropping and padding parameters</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 30%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>pad</code></td>
+<td>Padding for top and sides of cropped image. Defined as a fraction of the original cropped image size</td>
+<td>Bottom padding is controlled by <code>bottom_pad</code>. Default: 0.2</td>
+</tr>
+<tr class="even">
+<td><code>bottom_pad</code></td>
+<td>Padding for bottom of cropped image</td>
+<td>This is defined separately since for scale images, the bottom is usually visually distinct from the body and may be missed in the segmentation. Default: 0.4</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<caption>Image normalization options</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 30%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>normalization</code></td>
+<td>Method for optionally normalizing the image after cropping and padding</td>
+<td>Options: “none”, for no normalization, “he” for histogram equalization, and “clahe” for Contrast Limited Adaptive Histogram Equalization.</td>
+</tr>
+<tr class="even">
+<td><code>invert</code></td>
+<td>Option to invert the pixel values in gray scale before normalization</td>
+<td>This will make dark regions light and light regions dark.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="age-model-options" class="level3">
+<h3 class="anchored" data-anchor-id="age-model-options">Age Model Options</h3>
+<p>The following options control the age inference model. They are entered into the same configuration file for convenience.</p>
+<table class="caption-top table">
+<caption>Configuration for age inference model</caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 30%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>image_path</code></td>
+<td>Path to preprocessed image folder</td>
+<td>Best to include the full path in quotations. This should match <code>preprocessed_image_path</code> from the pre-processing step.</td>
+</tr>
+<tr class="even">
+<td><code>model_path</code></td>
+<td>Path to model weights (directory and file name of weights file)</td>
+<td>Best to include the full path in quotations.</td>
+</tr>
+<tr class="odd">
+<td><code>out_path</code></td>
+<td>Path to save results (directory and file name for CSV file)</td>
+<td>Best to include the full path in quotations.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled" title="The most important settings in this file to pay attention to are:">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The most important settings in this file to pay attention to are:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>The directory containing the scale images to process</li>
+<li>The directory where you want the model output file to be written</li>
+<li>The directory containing the trained model weights (<em>i.e.</em>, the <code>best_model.pth</code> file) and, if desired, the Segment Anything Model weights. If you simply cloned the repo and have not moved anything around, the trained model weights file will be alongside the model script in the <code>scripts</code> subdirectory in the cloned repository. The SAM weights will be wherever you saved them upon <a href="../../content/docs/setup.html#clone-the-repository">downloading them</a>.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Absolute vs. relative file paths">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Absolute vs.&nbsp;relative file paths
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Absolute file paths are generally recommended to avoid unintended behavior but will vary from computer to computer.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="dependencies" class="level2">
 <h2 class="anchored" data-anchor-id="dependencies">Dependencies</h2>
@@ -536,6 +726,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Run via command line with image, output, and model directories passed as required arguments
 </li>
 </ul>
+<pre><code>&lt;/li&gt;
+&lt;li&gt; &lt;b&gt;2025.0.2 (BETA)&lt;/b&gt; (July 2025):
+  &lt;ul&gt;
+    &lt;li&gt; Adds optional histogram normalization (simple histogram equalization and Contrast Limited Adaptive Histogram Equalization) &lt;/li&gt;
+    &lt;li&gt; Separates image pre-processing and scale ageing into two separate scripts &lt;/li&gt;
+    &lt;li&gt; Model settings and hyperparameters, including input and output file paths, are now listed in a configuration YAML file passed as a single command line argument to both Python scripts &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/li&gt;</code></pre>
 </li></ul>
 </details>
 <p><br></p>

@@ -21,26 +21,95 @@ Implementation instructions follow. Be sure to [set up and configure a Python en
 
 ## Usage
 
-The full model is wrapped inside a single Python script called `Scale_Aging_Inference_Script_Image_Only.py`. To execute, run the following command in a command line terminal:
+Running the model requires two steps. First, raw images must be pre-processed in order to crop out the scale of interest from the full image, pad the cropped image to ensure the full scale is captured, and (optionally) normalize the cropped image to facilitate ageing. This is all done using the `Scale_Raw_Image_Preprocessing.py` Python script. To execute, run the following command in a command line terminal:
 
 ```bash
-python Scale_Aging_Inference_Script_Image_Only.py <img_dir> <csv_dir> <model_dir>
+python Scale_Raw_Image_Preprocessing.py --config-file <config_dir>
 ```
 
-where
+or
 
-|               |                                                                                                       |
-| :------------ | :---------------------------------------------------------------------------------------------------- |
-| `<img_dir>`   | (str) full path to the directory containing the scale images to process                                   |
-| `<csv_dir>`   | (str) full path to desired directory to which the CSV output will be written                          |
-| `<model_dir>` | (str) full path to the directory containing the trained model weights (*i.e.*, the `best_model.pth` file) |
+```bash
+python Scale_Raw_Image_Preprocessing.py -c <config_dir>
+```
+
+where `<config_dir>` is the path to the configuration file containing model settings described [below](#options). The ageing model itself is wrapped inside a second Python script called `Scale_Aging_Inference_Script_Image_Only.py`. To execute, run the following command in a command line terminal:
+
+```bash
+python Scale_Aging_Inference_Script_Image_Only.py --config-file <config_dir>
+```
+
+or
+
+```bash
+python Scale_Aging_Inference_Script_Image_Only.py -c <config_dir>
+```
 
 <br>
 For more information, including an execution example, see [Using the Model](content/docs/usage.qmd) in the docs.
 
 ## Options
 
-No options are available at this time. All arguments above are currently required.
+All user options are contained in a config YAML file (called `configurations.yml` by default, but can be named anything) to allow easier control and greater reproducibility. Settings are entered as `key: value` pairs as described below. The first set of parameters control the image processing routine while the second set control the age model itself.
+
+### Pre-Processing Options
+
+| Key                       | Description       | Notes                     |
+|---------------------------|-------------------|---------------------------|
+| `raw_image_path`          | Path to raw images | Best to include the full path in quotations. Example: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images" |
+| `preprocessed_image_path` | Path to save the processed images |  Best to include the full path in quotations and to use a dedicated folder. Example: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped" |
+| `input_type`              | Input image type | |
+| `output_type`             | Output image type | Should not need to be changed |
+| `segment`                 | Scale segmentation method: "binary" for binary thresholding and "sam" for Segment Anything Model (SAM) | Binary thresholding should work fine if images are high contrast with light scales on a dark background. SAM is more robust to variable image conditions but requires more processing time and a GPU. |
+:Paths and general options {tbl-colwidths="[20,30,50]"}
+
+|                         |                   |                             |
+|-------------------------|-------------------|-----------------------------|
+| `binary_threshold`      | Binary threshold pixel value for differentiation between foreground (scale) and background | Default: 100 |
+:Binary threshold segmentation parameters {tbl-colwidths="[20,30,50]"}
+
+|                         |                   |                             |
+|-------------------------|-------------------|-----------------------------|
+| `points_per_side`       | Number of points to use for automatic segmentation of scales with SAM | This should be adjusted based on size of object of interest with respect to the entire image. In general, you want number of points to be greater than the ratio of image size/object size for the smallest object of interest. Having too many points though could greatly increase processing time. Default: 16 |
+| `stability_score_thresh` | Threshold for whether to include pixels in object mask | If the mask is too large, increase the score threshold and vice versa if the mask is too small. Default: 0.93 |
+| `downsample`            | Down-sample image size for input to SAM to reduce processing time | Default: 0.5 (i.e. reduce image dimensions to 50% of original size) |
+| `sam_model_type`        | SAM model type. Options are "vit_b", "vit_l", and "vit_h" in order of increasing size | Default: "vit_b" |
+| `sam_weights_path`      | Path to SAM model weights. Make sure this matches the model type | Best to use the full path in quotations. |
+:Segment Anything Model (SAM) parameters {tbl-colwidths="[20,30,50]"}
+
+|                         |                   |                             |
+|-------------------------|-------------------|-----------------------------|
+| `pad`                   | Padding for top and sides of cropped image. Defined as a fraction of the original cropped image size | Bottom padding is controlled by `bottom_pad`. Default: 0.2 |
+| `bottom_pad`            | Padding for bottom of cropped image | This is defined separately since for scale images, the bottom is usually visually distinct from the body and may be missed in the segmentation. Default: 0.4 |
+:Cropping and padding parameters {tbl-colwidths="[20,30,50]"}
+
+|                         |                   |                             |
+|-------------------------|-------------------|-----------------------------|
+| `normalization`         | Method for optionally normalizing the image after cropping and padding | Options: "none", for no normalization, "he" for histogram equalization, and "clahe" for Contrast Limited Adaptive Histogram Equalization. |
+| `invert`                | Option to invert the pixel values in gray scale before normalization | This will make dark regions light and light regions dark. |
+:Image normalization options {tbl-colwidths="[20,30,50]"}
+
+### Age Model Options
+
+The following options control the age inference model. They are entered into the same configuration file for convenience.
+
+| Key                     | Description       | Notes                       |
+|-------------------------|-------------------|-----------------------------|
+| `image_path`            | Path to preprocessed image folder | Best to include the full path in quotations. This should match `preprocessed_image_path` from the pre-processing step. |
+| `model_path`            | Path to model weights (directory and file name of weights file) | Best to include the full path in quotations. |
+| `out_path`              | Path to save results (directory and file name for CSV file) | Best to include the full path in quotations. |
+:Configuration for age inference model {tbl-colwidths="[20,30,50]"}
+
+::: {.callout-note title="The most important settings in this file to pay attention to are:"}
+
+1. The directory containing the scale images to process
+2. The directory where you want the model output file to be written
+3. The directory containing the trained model weights (*i.e.*, the `best_model.pth` file) and, if desired, the Segment Anything Model weights. If you simply cloned the repo and have not moved anything around, the trained model weights file will be alongside the model script in the `scripts` subdirectory in the cloned repository. The SAM weights will be wherever you saved them upon [downloading them](setup.qmd#clone-the-repository).
+:::
+
+::: {.callout-note title="Absolute vs. relative file paths"}
+Absolute file paths are generally recommended to avoid unintended behavior but will vary from computer to computer.
+:::
 
 ## Dependencies
 
@@ -72,6 +141,14 @@ See [Getting Started](content/docs/setup.qmd) for installation and setup instruc
       <ul>
         <li> Run via command line with image, output, and model directories passed as required arguments </li>
       </ul>
+    </li>
+    <li> <b>2025.0.2 (BETA)</b> (July 2025):
+      <ul>
+        <li> Adds optional histogram normalization (simple histogram equalization and Contrast Limited Adaptive Histogram Equalization) </li>
+        <li> Separates image pre-processing and scale ageing into two separate scripts </li>
+        <li> Model settings and hyperparameters, including input and output file paths, are now listed in a configuration YAML file passed as a single command line argument to both Python scripts </li>
+      </ul>
+    </li>
   </ul>
 </details>
 

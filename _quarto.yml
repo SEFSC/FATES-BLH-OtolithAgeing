@@ -13,3 +13,7 @@ metadata-files:
   - theme/_website.yml
   - navbars/_topnav_sefsc.yml
   - _metadata.yml
+
+website:
+  sidebar:
+    collapse-level: 2

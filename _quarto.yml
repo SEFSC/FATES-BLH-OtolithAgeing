@@ -16,4 +16,4 @@ metadata-files:
 
 website:
   sidebar:
-    collapse: false
+    collapse-level: 3

@@ -5,11 +5,11 @@
 # -----Paths and general options-----
 # Path to raw images. Best to include the full path in quotations.
 # Example: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images"
-raw_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images"
+raw_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images"
 
 # Path to save the processed images. Best to include the full path in quotations and to use a dedicated folder.
 # Example: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
-preprocessed_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
+preprocessed_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/cropped"
 
 # Input image type
 input_type: ".tif"
@@ -73,10 +73,10 @@ invert: True
 #-----------------------------------------------------------------------------------------------------
 
 # Path to preprocessed image folder. Best to include the full path in quotations. This should match `preprocessed_image_path` from the pre-processing step.
-image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
+image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/cropped"
 
 # Path to model weights (directory and file name of weights file). Best to include the full path in quotations.
-model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Chapter 2 - Inference on Images/best_model.pth"
+model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/best_model_images_eq.pth"
 
 # Path to save results (directory and file name for CSV file). Best to include the full path in quotations.
-out_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/model_predictions/inference_results.csv"
+out_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/inference_results.csv"

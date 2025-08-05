@@ -12,3 +12,6 @@ Menhaden Scales Aging/Inference Script/sam_vit_b_01ec64.pth
 Menhaden Scales Aging/Chapter 4 - Multimodal Train and Inference/best_model.pth
 Menhaden Scales Aging/Chapter 4 - Multimodal Train and Inference/final_model.pth
 Menhaden Scales Aging/Chapter 1 - Data Preprocessing/Raw Image/27061.tif
+
+.quarto/
+_site/

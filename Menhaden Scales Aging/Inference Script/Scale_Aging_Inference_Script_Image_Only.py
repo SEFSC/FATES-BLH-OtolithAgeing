@@ -1,3 +1,20 @@
+#!/usr/bin/env python
+
+# -----------------------------------------------------------------------------
+# Title: Scale_Aging_Inference_Script_Image_Only.py
+#
+# Description: This script predicts the age of fish scale images using a pre-
+#              trained ResNet18 model. Arguments, hyperparameters, and other
+#              settings are included in a configs.yml file. Predicted ages are
+#              written to a CSV file.
+#
+# Author: aotian.zheng@noaa.gov
+# Release Date: July 2025
+# Last Updated: August 2025
+#
+# Usage: python Scale_Aging_Inference_Script_Image_Only.py -c path/to/configs.yml
+# -----------------------------------------------------------------------------
+
 import argparse
 import yaml
 import cv2 as cv

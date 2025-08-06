@@ -1,3 +1,23 @@
+#!/usr/bin/env python
+
+# -----------------------------------------------------------------------------
+# Title: Scale_Raw_Image_Preprocessing.py
+#
+# Description: This script processes raw fish scale images by cropping and
+#              padding them using either simple binary thresholding or a
+#              Segment Anything Model (SAM). Additional options include image
+#              normalization and grey scale color inversion. Arguments,
+#              hyperparameters, and other settings are included in a
+#              configs.yml file. New cropped images are saved to an output
+#              directory specified in configs.yml.
+#
+# Author: aotian.zheng@noaa.gov
+# Release Date: July 2025
+# Last Updated: August 2025
+#
+# Usage: python Scale_Raw_Image_Preprocessing.py -c path/to/configs.yml
+# -----------------------------------------------------------------------------
+
 import argparse
 import yaml
 import os

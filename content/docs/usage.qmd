@@ -78,8 +78,8 @@ Navigate into the directory containing the `Scale_Aging_Inference_Script_Image_O
 Run the model as described in the [usage instructions](../../index.qmd#usage):
 
 ```bash
-python Scale_Raw_Image_Preprocessing.py --config-file <config_dir>
-python Scale_Aging_Inference_Script_Image_Only.py --config-file <config_dir>
+python Scale_Raw_Image_Preprocessing.py --config_path <config_dir>
+python Scale_Aging_Inference_Script_Image_Only.py --config_path <config_dir>
 ```
 
 where `<config_dir>` is the path to the configuration file containing model settings presented [above](#configuration-file).

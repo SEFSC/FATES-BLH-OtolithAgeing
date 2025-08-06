@@ -24,7 +24,7 @@ Implementation instructions follow. Be sure to [set up and configure a Python en
 Running the model requires two steps. First, raw images must be pre-processed in order to crop out the scale of interest from the full image, pad the cropped image to ensure the full scale is captured, and (optionally) normalize the cropped image to facilitate ageing. This is all done using the `Scale_Raw_Image_Preprocessing.py` Python script. To execute, run the following command in a command line terminal:
 
 ```bash
-python Scale_Raw_Image_Preprocessing.py --config-file <config_dir>
+python Scale_Raw_Image_Preprocessing.py --config_path <config_dir>
 ```
 
 or
@@ -36,7 +36,7 @@ python Scale_Raw_Image_Preprocessing.py -c <config_dir>
 where `<config_dir>` is the path to the configuration file containing model settings described [below](#options). The ageing model itself is wrapped inside a second Python script called `Scale_Aging_Inference_Script_Image_Only.py`. To execute, run the following command in a command line terminal:
 
 ```bash
-python Scale_Aging_Inference_Script_Image_Only.py --config-file <config_dir>
+python Scale_Aging_Inference_Script_Image_Only.py --config_path <config_dir>
 ```
 
 or

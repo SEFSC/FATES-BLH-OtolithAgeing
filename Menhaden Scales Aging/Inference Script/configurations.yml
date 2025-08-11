@@ -62,11 +62,40 @@ invert: True
 # path to preprocessed image folder
 img_path: "cropped"
 
+# path to test csv
+test_csv: "train.csv"
+
 # model path
-model_path: "best_model.pth"
+model_path: "weights/multimodal/best_model.pth"
 
 # output path for results
 out_path: "result.csv"
 
 
+#-----------------------------------------------------------------------------------------------------
+# Config for training 
+#-----------------------------------------------------------------------------------------------------
 
+# path to preprocessed image folder
+train_img_path: "cropped"
+
+# path to train csv
+train_csv: "train.csv"
+
+# path to validation csv
+valid_csv: "train.csv"
+
+# model output path for results
+model_out_path: "weights/multimodal"
+
+# number of epochs of training
+epochs: 50
+
+# base learning rate
+lr: 0.001
+
+# training scheduler checkpoints (learning rate multiplied by gamma at these epoch)
+scheduler: [15, 35]
+
+# training scheduler learning rate decay gamma
+gamma: 0.1

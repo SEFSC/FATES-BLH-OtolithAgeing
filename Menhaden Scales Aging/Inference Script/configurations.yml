@@ -5,11 +5,13 @@
 # -----Paths and general options-----
 # Path to raw images. Best to include the full path in quotations.
 # Example: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images"
-raw_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images"
+# raw_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images"
+raw_image_path: "G:/.shortcut-targets-by-id/1YwAaaR2FRYGrgbDcz__8x5QxatbC3UrG/Plant 10 Images"
 
 # Path to save the processed images. Best to include the full path in quotations and to use a dedicated folder.
 # Example: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
-preprocessed_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/cropped"
+# preprocessed_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/cropped"
+preprocessed_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images/Plant 10 cropped"
 
 # Input image type
 input_type: ".tif"
@@ -62,10 +64,10 @@ bottom_pad: 0.4
 
 # -----Normalization options-----
 # After cropping and padding, there is an additional option to normalize the image.  The options are "none", for no normalization, "he" for histogram equalization, and "clahe" for Contrast Limited Adaptive Histogram Equalization.
-normalization: "clahe"
+normalization: "none"
 
 # Option to invert the pixel values in gray scale before normalization. This will make dark regions light and light regions dark.
-invert: True
+invert: False
 
 
 #-----------------------------------------------------------------------------------------------------
@@ -73,10 +75,13 @@ invert: True
 #-----------------------------------------------------------------------------------------------------
 
 # Path to preprocessed image folder. Best to include the full path in quotations. This should match `preprocessed_image_path` from the pre-processing step.
-image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/cropped"
+# image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/cropped"
+image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images/Plant 10 cropped"
 
 # Path to model weights (directory and file name of weights file). Best to include the full path in quotations.
-model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/best_model_images_eq.pth"
+# model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/best_model_images_eq.pth"
+model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/best_model_images.pth"
 
 # Path to save results (directory and file name for CSV file). Best to include the full path in quotations.
-out_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/inference_results.csv"
+# out_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/inference_results.csv"
+out_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images/Plant 10 cropped/inference_results.csv"

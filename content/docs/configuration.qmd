@@ -78,5 +78,5 @@ One might opt instead to store the `configuration.yml` file in the same director
 The disadvantage to this option is that it will require the full directory path to be included when [running the model](usage.qmd#running-the-model) and specifying the configuration file to use.
 
 ::: {.callout-note}
-These are by no means the only options. Whatever convention is adopted, consistency is key. You future self will thank you some day.
+These are by no means the only options. Whatever convention is adopted, consistency is key. Your future self will thank you some day.
 :::

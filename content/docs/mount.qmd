@@ -6,7 +6,7 @@ order: 2
 
 If the data to be processed are stored on a remote drive somewhere, such as in Google Shared Drive, that drive must first be "mounted" in order for it to be accessible via the operating system's file system. The Google Drive application, which is already installed on the Advanced Technology GPU machine, makes accessing personal Google drives and Google shared drives easy. One must, however, log in to authenticate access.
 
-Simply double click the Google Drive icon on the desktop and log in as normal. When asked to authenticate with two factor authentication, plug your Yubikey into your local computer and authenticate as usual. The authentication will be passed to the remote machine. Once done, your Google drive will appear in File Explorer as the next available drive letter
+Simply double click the Google Drive icon on the desktop and log in as normal. When asked to authenticate with two factor authentication, plug your Yubikey into your local computer and authenticate as usual. The authentication will be passed to the remote machine. Once done, your Google drive will appear in File Explorer in the menu on the left.
 
 ::: {.callout-note}
 Windows wil automatically assign the next available drive letter to Google Drive when mounted. This may be `D` or `G` or something else. Note this letter, as you will need it later if you need to access anything in Google Drive.

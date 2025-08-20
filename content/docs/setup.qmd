@@ -111,7 +111,7 @@ This command creates a virtual environment called `scaleageing` and downloads an
 Note that this virtual environment can be named anything at all, but remember what you call it -- and keep it simple -- because it will be invoked by name each time you use the model.
 
 ::: {.callout-tip title="Deleting a virtual environment"}
-In the unlikely event you need to delete this virtual environment, such as to troubleshoot or just need to restart from a clean slate, it can be deleted using:
+In the unlikely event you need to delete this virtual environment, such as to troubleshoot or to restart from a clean slate, use the following:
 
 ```bash
 conda remove --name ENV_NAME --all

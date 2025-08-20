@@ -52,11 +52,11 @@ If Anaconda is configured properly, this should print the version of the install
 4. Repeat step 3 with the same path but with `\Scripts\` appended to the end. For example, `C:\ProgramData\anaconda3\Scripts\`.
 5. Click Ok (twice) to save and exit Settings.
 
-Close and reopen your command line terminal. Then type `conda init` to initialize Anaconda. Finally, try the `conda --version` command again. It should work now.
+Close and reopen your command line terminal. Then type `conda init` to initialize Anaconda. You may need to close and reopen your command line terminal again (it will prompt you if needed.) Finally, try the `conda --version` command again. It should work now.
 
 ### Clone the Repository
 
-Most of the model code is [available on GitHub]({{< meta website.repo-url >}}). To retrieve it:
+The model code and most of its dependencies are [available on GitHub]({{< meta website.repo-url >}}). To retrieve it, clone the `scales` branch of this repo, which is currently functioning as the production version of the model:
 
 1. Open a terminal window and change directories (`cd`) to wherever you want the code to reside. For example,
 
@@ -71,29 +71,53 @@ Most of the model code is [available on GitHub]({{< meta website.repo-url >}}). 
 2. Clone the repository into the desired directory
 
    ```bash
-   git clone {{< meta website.repo-url >}} .
+   git clone -b scales {{< meta website.repo-url >}} .
    ```
 
    if you want all of the repo contents in the current directory, or 
    
    ```bash
-   git clone {{< meta website.repo-url >}}
+   git clone -b scales {{< meta website.repo-url >}}
    ```
 
    if you want the repo contents to be downloaded into a new subdirectory called `{{< meta repo.name >}}`. This is just personal preference. (Note the difference between the two commands is the dot `.` at the end.)
 
+### Download Segmentation Model (recommended)
+
 This model has the option of using a [Segment Anything Model](https://arxiv.org/abs/2408.00714) (SAM) to find the scale within each image. To use this method, one must [download a model checkpoint](https://github.com/facebookresearch/segment-anything?tab=readme-ov-file#model-checkpoints). The [ViT-B model](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth) is recommended. For convenience, consider saving this file in the same directory as model script, for example `~/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script`.
+
+::: {.callout-important}
+You only need to download this if you intend to use Segment Anything Model method to image preprocessing. See [Using the Model](usage.qmd#configuration-file) for more information. 
+:::
 
 ### Create a Virtual Environment
 
-Virtual environments are used to manage Python packages. Create a virtual environment specifically for this model. In a terminal window, navigate into the directory containing the model code (from the previous step). Then:
+Virtual environments are used to manage Python packages. Create a virtual environment specifically for this model. In a terminal window, navigate (`cd`) into the directory containing the `environment.yml` file. This should be the parent directory of the cloned repository. For example,
 
 ```bash
-conda env create --name scaleageing --file=environment.yml
+cd "c:/Users/user.name/Documents/ageing/FATES-BLH-OtolithAgeing"
 ```
 
-This command creates a virtual environment called `scaleageing` and downloads and installs all of the package dependencies listed in the `environment.yml` file contained in the repo.
+where `user.name` is your computer user name.
+
+Then:
+
+```bash
+conda env create --name scaleageing --file="environment.yml"
+```
+
+This command creates a virtual environment called `scaleageing` and downloads and installs all of the package dependencies listed in the `environment.yml` file contained in the repo. The preceding `./` means that file is located "here" in the present working directory to which you navigated in the previous step.
 
 Note that this virtual environment can be named anything at all, but remember what you call it -- and keep it simple -- because it will be invoked by name each time you use the model.
+
+::: {.callout-tip title="Deleting a virtual environment"}
+In the unlikely event you need to delete this virtual environment, such as to troubleshoot or just need to restart from a clean slate, it can be deleted using:
+
+```bash
+conda remove --name ENV_NAME --all
+```
+
+where `ENV_NAME` is the name of the virtual environment to be deleted (*e.g.*, `scaleageing`.)
+:::
 
 **Congratulations! Now that your environment is set up -- and this only needs to be done once, the first time -- we are ready to start [using the model](usage.qmd).**

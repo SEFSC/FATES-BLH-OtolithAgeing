@@ -3,65 +3,12 @@ title: Using the Model
 subtitle: Predicting the ages of a set of menhaden scale images
 metadata-files:
   - ../../_metadata.yml
-order: 3
+order: 4
 ---
 
-Running the Menhaden Ageing Model is straightforward and only requires two commands: one to pro-process the images and a second to run the age inference model. You will, however, need to modify a `configurations.yml` file. A sample is provided below, while the contents of this file are explained in more detail in the [model options](index.qmd#options).
+Running the Menhaden Ageing Model is straightforward and only requires two commands: one to pro-process the images and a second to run the age inference model. You will, however, need to modify a `configurations.yml` file, as [described previously](configuration.qmd). A sample is provided below, while the contents of this file are explained in more detail in the [model options](index.qmd#options).
 
-### Configuration File
-
-A `configurations.yml` file is an easy way to control model performance. The most important settings in this file to pay attention to are:
-
-1. The directory containing the scale images to process
-2. The directory where you want the model output file to be written
-3. The directory containing the trained model weights (*i.e.*, the `best_model.pth` file) and, if desired, the Segment Anything Model weights. If you simply cloned the repo and have not moved anything around, the trained model weights file will be alongside the model script in the `scripts` subdirectory in the cloned repository. The SAM weights will be wherever you saved them upon [downloading them](setup.qmd#clone-the-repository).
-
-Absolute file paths are generally recommended to avoid unintended behavior but will vary from computer to computer.
-
-This YAML file is structured as `key: value` pairs. The order in which these entries are presented in the file does not matter, but [all keys need to be included and match exactly](index.qmd#options) as expected. For example:
-
-```{.yaml filename="configuration.yml"}
-# --------------------------------------------------------------------------------------------
-# Configuration for pre-processsing scale images (crop, pad, and normalization)
-# --------------------------------------------------------------------------------------------
-
-# -----Paths and general options-----
-raw_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images"
-preprocessed_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
-input_type: ".tif"
-output_type: ".jpg"
-segment: "sam"
-
-# -----Binary Threshold segmentation parameters-----
-binary_threshold: 100
-
-# -----Segment Anything Model (SAM) parameters-----
-points_per_side: 16
-stability_score_thresh: 0.93
-downsample: 0.5
-sam_model_type: "vit_b"
-sam_weights_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/sam_vit_b_01ec64.pth"
-
-# -----Cropping and padding parameters-----
-pad: 0.2
-bottom_pad: 0.4
-
-# -----Normalization options-----
-normalization: "clahe"
-invert: True
-
-# --------------------------------------------------------------------------------------------
-# Configuration for age inference 
-# --------------------------------------------------------------------------------------------
-
-# -----Model paths-----
-image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
-model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Chapter 2 - Inference on Images/best_model.pth"
-out_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/model_predictions/inference_results.csv"
-
-```
-
-### Running the model
+### Activate the Virtual Environment
 
 First we need to activate the virtual environment we [previously configured](setup.qmd#create-a-virtual-environment). In a terminal window, type:
 
@@ -73,7 +20,13 @@ conda activate scaleageing
 If you named your virtual environment something other than "scaleageing", invoke that name instead.
 :::
 
-Navigate into the directory containing the `Scale_Aging_Inference_Script_Image_Only.py` script. If you simply cloned the repo and have not moved anything around, this will in the `scripts` subdirectory in the cloned repository.
+### Running the model
+
+Navigate (`cd`) into the directory containing the `Scale_Aging_Inference_Script_Image_Only.py` script. If you simply cloned the repo and have not moved anything around, this will in the `/Menhaden Scales Aging/Inference Script` subdirectory in the cloned repository. For example:
+
+```bash
+cd "c:/Users/user.name/Documents/ageing/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script"
+```
 
 Run the model as described in the [usage instructions](../../index.qmd#usage):
 
@@ -83,3 +36,40 @@ python Scale_Aging_Inference_Script_Image_Only.py --config_path <config_dir>
 ```
 
 where `<config_dir>` is the path to the configuration file containing model settings presented [above](#configuration-file).
+
+#### Examples
+
+If your `configuration.yml` file is [stored alongside your model script](configuration.qmd#option-1-alongside-the-model), your execution commands will simply be:
+
+```bash
+python Scale_Raw_Image_Preprocessing.py --config_path configuration.yml
+python Scale_Aging_Inference_Script_Image_Only.py --config_path configuration.yml
+```
+
+Or, if you named your configuration file something unique such as `configuration-2024-atl.yml`, it might look like this:
+
+```bash
+python Scale_Raw_Image_Preprocessing.py --config_path configuration-2024-atl.yml
+python Scale_Aging_Inference_Script_Image_Only.py --config_path configuration-2024-atl.yml
+```
+
+Alternatively, your `configuration.yml` file is [stored alongside your data](configuration.qmd#option-2-alongside-the-data), you will need to tell the script exactly where that file is located using its full directory path. Be sure to also include the correct file name, if applicable. For example:
+
+```bash
+python Scale_Raw_Image_Preprocessing.py --config_path "c:/Users/user.name/Documents/data/2024/configuration.yml"
+python Scale_Aging_Inference_Script_Image_Only.py --config_path "c:/Users/user.name/Documents/data/2024/configuration.yml"
+```
+
+::: {.callout-tip}
+If you get a "File not found" error when running the script, carefully check your directories and file names, including those contained in the configuration file.
+:::
+
+### When finished
+
+When you are finished running the model, deactivate the virtual environment to free up resources on your computer:
+
+```bash
+conda deactivate
+```
+
+Note that there is no need to specify the environment when deactivating, as conda automatically deactivates the running environment.

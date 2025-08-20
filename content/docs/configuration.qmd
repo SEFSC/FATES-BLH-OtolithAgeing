@@ -1,0 +1,82 @@
+---
+title: Configuring the Model
+subtitle: "Using the `configuration.yml` file"
+metadata-files:
+  - ../../_metadata.yml
+order: 3
+---
+
+A `configurations.yml` file is an easy way to control model performance. The most important settings in this file to pay attention to are:
+
+1. The directory containing the scale images to process
+2. The directory where you want the model output file to be written
+3. The directory containing the trained model weights (*i.e.*, the `best_model.pth` file) and, if desired, the Segment Anything Model weights. If you simply cloned the repo and have not moved anything around, the trained model weights file will be alongside the model script in the `scripts` subdirectory in the cloned repository. The SAM weights will be wherever you saved them upon [downloading them](setup.qmd#clone-the-repository).
+
+Absolute file paths are generally recommended to avoid unintended behavior but will vary from computer to computer.
+
+This YAML file is structured as `key: value` pairs. The order in which these entries are presented in the file does not matter, but [all keys need to be included and match exactly](index.qmd#options) as expected. For example:
+
+```{.yaml filename="configuration.yml"}
+# --------------------------------------------------------------------------------------------
+# Configuration for pre-processsing scale images (crop, pad, and normalization)
+# --------------------------------------------------------------------------------------------
+
+# -----Paths and general options-----
+raw_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images"
+preprocessed_image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
+input_type: ".tif"
+output_type: ".jpg"
+segment: "sam"
+
+# -----Binary Threshold segmentation parameters-----
+binary_threshold: 100
+
+# -----Segment Anything Model (SAM) parameters-----
+points_per_side: 16
+stability_score_thresh: 0.93
+downsample: 0.5
+sam_model_type: "vit_b"
+sam_weights_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/sam_vit_b_01ec64.pth"
+
+# -----Cropping and padding parameters-----
+pad: 0.2
+bottom_pad: 0.4
+
+# -----Normalization options-----
+normalization: "clahe"
+invert: True
+
+# --------------------------------------------------------------------------------------------
+# Configuration for age inference 
+# --------------------------------------------------------------------------------------------
+
+# -----Model paths-----
+image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"
+model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Chapter 2 - Inference on Images/best_model.pth"
+out_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/model_predictions/inference_results.csv"
+
+```
+
+::: {.callout-tip title="A note on reproducibility"}
+For the sake of documenting workflows and facilitating future reproducibility, consider creating new configuration files for each model run (for example, one for each data set to be processed). There is no restriction on what this file can be called; you will tell the model which file to use when you [execute the script](usage.qmd#running-the-model). Thus, some convention like `configuration-2024-atl.yml` might be sensible.
+:::
+
+### Where to save your configuration file
+
+There are two schools of thought when it comes to organizing the model files. It is ultimately up to the user to choose whichever convention is best for them.
+
+#### Option 1: Alongside the model
+
+Storing the `configuration.yml` file in the same directory as the model scripts is advantageous when [running the model](usage.qmd#running-the-model) because you will not need to include the full directory path when you specify which configuration file to use. Since you will be executing the model script from the directory that script resides, the system will automatically find the `configuration.yml` file in that same directory.
+
+The disadvantage to this option is that your directory may quickly become cluttered with different configuration files for different model runs.
+
+#### Option 2: Alongside the data
+
+One might opt instead to store the `configuration.yml` file in the same directory as the data to be processed or the directory where the model output will be written out. This is helpful for documenting workflows and ensuring reproducibility since it will be easy to see how a given data set was processed.
+
+The disadvantage to this option is that it will require the full directory path to be included when [running the model](usage.qmd#running-the-model) and specifying the configuration file to use.
+
+::: {.callout-note}
+These are by no means the only options. Whatever convention is adopted, consistency is key. You future self will thank you some day.
+:::

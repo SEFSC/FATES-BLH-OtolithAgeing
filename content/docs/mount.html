@@ -413,7 +413,20 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>If the data to be processed are stored on a remote drive somewhere, such as in Google Shared Drive, that drive must first be “mounted” in order for it to be accessible via the operating system’s file system. The Google Drive application, which is already installed on the Advanced Technology GPU machine, makes accessing personal Google drives and Google shared drives easy. One must, however, log in to authenticate access.</p>
-<p>Simply double click the Google Drive icon on the desktop and log in as normal. When asked to authenticate with two factor authentication, plug your Yubikey into your local computer and authenticate as usual. The authentication will be passed to the remote machine. Once done, your Google drive will appear in File Explorer as the “G” drive.</p>
+<p>Simply double click the Google Drive icon on the desktop and log in as normal. When asked to authenticate with two factor authentication, plug your Yubikey into your local computer and authenticate as usual. The authentication will be passed to the remote machine. Once done, your Google drive will appear in File Explorer as the next available drive letter</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Windows wil automatically assign the next available drive letter to Google Drive when mounted. This may be <code>D</code> or <code>G</code> or something else. Note this letter, as you will need it later if you need to access anything in Google Drive.</p>
+</div>
+</div>
 <p>Other drives, such as each lab’s on-prem shared storage drives, are already mapped and are also accessible by their corresponding drive letters.</p>
 <p>The example in <a href="../../content/docs/usage.html">Using the Model</a> illustrates how to access data stored in a Google shared drive.</p>
 

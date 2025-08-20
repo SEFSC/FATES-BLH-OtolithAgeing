@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,14 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6221b5c51817e989309ffdd424e298b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-c49a14756366245c53d0d43ed76454a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-6221b5c51817e989309ffdd424e298b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-7d56ba7ebe4be84583ca0e96d9d7b64a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-24a3e24c7d8106572728627796a52b46.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-7d56ba7ebe4be84583ca0e96d9d7b64a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -395,6 +395,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../content/docs/configuration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Configuring the Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../content/docs/usage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using the Model</span></a>
   </div>
@@ -421,6 +427,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#software-installation" id="toc-software-installation" class="nav-link active" data-scroll-target="#software-installation">Software Installation</a></li>
   <li><a href="#clone-the-repository" id="toc-clone-the-repository" class="nav-link" data-scroll-target="#clone-the-repository">Clone the Repository</a></li>
+  <li><a href="#download-segmentation-model-recommended" id="toc-download-segmentation-model-recommended" class="nav-link" data-scroll-target="#download-segmentation-model-recommended">Download Segmentation Model (recommended)</a></li>
   <li><a href="#create-a-virtual-environment" id="toc-create-a-virtual-environment" class="nav-link" data-scroll-target="#create-a-virtual-environment">Create a Virtual Environment</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/blob/docs/content/docs/setup.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -511,12 +518,12 @@ Note
 <li>Repeat step 3 with the same path but with <code>\Scripts\</code> appended to the end. For example, <code>C:\ProgramData\anaconda3\Scripts\</code>.</li>
 <li>Click Ok (twice) to save and exit Settings.</li>
 </ol>
-<p>Close and reopen your command line terminal. Then type <code>conda init</code> to initialize Anaconda. Finally, try the <code>conda --version</code> command again. It should work now.</p>
+<p>Close and reopen your command line terminal. Then type <code>conda init</code> to initialize Anaconda. You may need to close and reopen your command line terminal again (it will prompt you if needed.) Finally, try the <code>conda --version</code> command again. It should work now.</p>
 </section>
 </section>
 <section id="clone-the-repository" class="level3">
 <h3 class="anchored" data-anchor-id="clone-the-repository">Clone the Repository</h3>
-<p>Most of the model code is <a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing">available on GitHub</a>. To retrieve it:</p>
+<p>The model code and most of its dependencies are <a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing">available on GitHub</a>. To retrieve it, clone the <code>scales</code> branch of this repo, which is currently functioning as the production version of the model:</p>
 <ol type="1">
 <li><p>Open a terminal window and change directories (<code>cd</code>) to wherever you want the code to reside. For example,</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Documents/ageing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -534,19 +541,53 @@ Important
 </div>
 </div></li>
 <li><p>Clone the repository into the desired directory</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/SEFSC/FATES-BLH-OtolithAgeing .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">-b</span> scales https://github.com/SEFSC/FATES-BLH-OtolithAgeing .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>if you want all of the repo contents in the current directory, or</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/SEFSC/FATES-BLH-OtolithAgeing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">-b</span> scales https://github.com/SEFSC/FATES-BLH-OtolithAgeing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>if you want the repo contents to be downloaded into a new subdirectory called <code>FATES-BLH-OtolithAgeing</code>. This is just personal preference. (Note the difference between the two commands is the dot <code>.</code> at the end.)</p></li>
 </ol>
+</section>
+<section id="download-segmentation-model-recommended" class="level3">
+<h3 class="anchored" data-anchor-id="download-segmentation-model-recommended">Download Segmentation Model (recommended)</h3>
 <p>This model has the option of using a <a href="https://arxiv.org/abs/2408.00714">Segment Anything Model</a> (SAM) to find the scale within each image. To use this method, one must <a href="https://github.com/facebookresearch/segment-anything?tab=readme-ov-file#model-checkpoints">download a model checkpoint</a>. The <a href="https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth">ViT-B model</a> is recommended. For convenience, consider saving this file in the same directory as model script, for example <code>~/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script</code>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You only need to download this if you intend to use Segment Anything Model method to image preprocessing. See <a href="../../content/docs/usage.html#configuration-file">Using the Model</a> for more information.</p>
+</div>
+</div>
 </section>
 <section id="create-a-virtual-environment" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-virtual-environment">Create a Virtual Environment</h3>
-<p>Virtual environments are used to manage Python packages. Create a virtual environment specifically for this model. In a terminal window, navigate into the directory containing the model code (from the previous step). Then:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--name</span> scaleageing <span class="at">--file</span><span class="op">=</span>environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This command creates a virtual environment called <code>scaleageing</code> and downloads and installs all of the package dependencies listed in the <code>environment.yml</code> file contained in the repo.</p>
+<p>Virtual environments are used to manage Python packages. Create a virtual environment specifically for this model. In a terminal window, navigate (<code>cd</code>) into the directory containing the <code>environment.yml</code> file. This should be the parent directory of the cloned repository. For example,</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="st">"c:/Users/user.name/Documents/ageing/FATES-BLH-OtolithAgeing"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>where <code>user.name</code> is your computer user name.</p>
+<p>Then:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--name</span> scaleageing <span class="at">--file</span><span class="op">=</span><span class="st">"environment.yml"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This command creates a virtual environment called <code>scaleageing</code> and downloads and installs all of the package dependencies listed in the <code>environment.yml</code> file contained in the repo. The preceding <code>./</code> means that file is located “here” in the present working directory to which you navigated in the previous step.</p>
 <p>Note that this virtual environment can be named anything at all, but remember what you call it – and keep it simple – because it will be invoked by name each time you use the model.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Deleting a virtual environment">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Deleting a virtual environment
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the unlikely event you need to delete this virtual environment, such as to troubleshoot or just need to restart from a clean slate, it can be deleted using:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="at">--name</span> ENV_NAME <span class="at">--all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>where <code>ENV_NAME</code> is the name of the virtual environment to be deleted (<em>e.g.</em>, <code>scaleageing</code>.)</p>
+</div>
+</div>
 <p><strong>Congratulations! Now that your environment is set up – and this only needs to be done once, the first time – we are ready to start <a href="../../content/docs/usage.html">using the model</a>.</strong></p>
 
 

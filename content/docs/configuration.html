@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mounting a Drive – Fish Ageing Models</title>
+<title>Configuring the Model – Fish Ageing Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/docs/configuration.html" rel="next">
-<link href="../../content/docs/setup.html" rel="prev">
+<link href="../../content/docs/usage.html" rel="next">
+<link href="../../content/docs/mount.html" rel="prev">
 <link href="../../theme/images/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -298,7 +333,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/docs/index.html">Read the Docs</a></li><li class="breadcrumb-item"><a href="../../content/docs/index.html">Menhaden Ageing Model</a></li><li class="breadcrumb-item"><a href="../../content/docs/mount.html">Mounting a Drive</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/docs/index.html">Read the Docs</a></li><li class="breadcrumb-item"><a href="../../content/docs/index.html">Menhaden Ageing Model</a></li><li class="breadcrumb-item"><a href="../../content/docs/configuration.html">Configuring the Model</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -354,13 +389,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/docs/mount.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../content/docs/mount.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Mounting a Drive</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/docs/configuration.html" class="sidebar-item-text sidebar-link">
+  <a href="../../content/docs/configuration.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Configuring the Model</span></a>
   </div>
 </li>
@@ -385,17 +420,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#where-to-save-your-configuration-file" id="toc-where-to-save-your-configuration-file" class="nav-link active" data-scroll-target="#where-to-save-your-configuration-file">Where to save your configuration file</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/blob/docs/content/docs/configuration.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/docs/index.html">Read the Docs</a></li><li class="breadcrumb-item"><a href="../../content/docs/index.html">Menhaden Ageing Model</a></li><li class="breadcrumb-item"><a href="../../content/docs/mount.html">Mounting a Drive</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/docs/index.html">Read the Docs</a></li><li class="breadcrumb-item"><a href="../../content/docs/index.html">Menhaden Ageing Model</a></li><li class="breadcrumb-item"><a href="../../content/docs/configuration.html">Configuring the Model</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Mounting a Drive</h1>
-<p class="subtitle lead">Accessing data stored on a remote drive</p>
+<h1 class="title">Configuring the Model</h1>
+<p class="subtitle lead">Using the <code>configuration.yml</code> file</p>
 </div>
 
 
@@ -412,12 +453,98 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>If the data to be processed are stored on a remote drive somewhere, such as in Google Shared Drive, that drive must first be “mounted” in order for it to be accessible via the operating system’s file system. The Google Drive application, which is already installed on the Advanced Technology GPU machine, makes accessing personal Google drives and Google shared drives easy. One must, however, log in to authenticate access.</p>
-<p>Simply double click the Google Drive icon on the desktop and log in as normal. When asked to authenticate with two factor authentication, plug your Yubikey into your local computer and authenticate as usual. The authentication will be passed to the remote machine. Once done, your Google drive will appear in File Explorer as the “G” drive.</p>
-<p>Other drives, such as each lab’s on-prem shared storage drives, are already mapped and are also accessible by their corresponding drive letters.</p>
-<p>The example in <a href="../../content/docs/usage.html">Using the Model</a> illustrates how to access data stored in a Google shared drive.</p>
+<p>A <code>configurations.yml</code> file is an easy way to control model performance. The most important settings in this file to pay attention to are:</p>
+<ol type="1">
+<li>The directory containing the scale images to process</li>
+<li>The directory where you want the model output file to be written</li>
+<li>The directory containing the trained model weights (<em>i.e.</em>, the <code>best_model.pth</code> file) and, if desired, the Segment Anything Model weights. If you simply cloned the repo and have not moved anything around, the trained model weights file will be alongside the model script in the <code>scripts</code> subdirectory in the cloned repository. The SAM weights will be wherever you saved them upon <a href="../../content/docs/setup.html#clone-the-repository">downloading them</a>.</li>
+</ol>
+<p>Absolute file paths are generally recommended to avoid unintended behavior but will vary from computer to computer.</p>
+<p>This YAML file is structured as <code>key: value</code> pairs. The order in which these entries are presented in the file does not matter, but <a href="../../content/docs/index.html#options">all keys need to be included and match exactly</a> as expected. For example:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>configuration.yml</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="configuration.yml"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuration for pre-processsing scale images (crop, pad, and normalization)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># -----Paths and general options-----</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">raw_image_path</span><span class="kw">:</span><span class="at"> </span><span class="st">"G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images"</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">preprocessed_image_path</span><span class="kw">:</span><span class="at"> </span><span class="st">"G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">input_type</span><span class="kw">:</span><span class="at"> </span><span class="st">".tif"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">output_type</span><span class="kw">:</span><span class="at"> </span><span class="st">".jpg"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">segment</span><span class="kw">:</span><span class="at"> </span><span class="st">"sam"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># -----Binary Threshold segmentation parameters-----</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">binary_threshold</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># -----Segment Anything Model (SAM) parameters-----</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">points_per_side</span><span class="kw">:</span><span class="at"> </span><span class="dv">16</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">stability_score_thresh</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.93</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">downsample</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.5</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">sam_model_type</span><span class="kw">:</span><span class="at"> </span><span class="st">"vit_b"</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">sam_weights_path</span><span class="kw">:</span><span class="at"> </span><span class="st">"C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/sam_vit_b_01ec64.pth"</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># -----Cropping and padding parameters-----</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">pad</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.2</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">bottom_pad</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.4</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># -----Normalization options-----</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">normalization</span><span class="kw">:</span><span class="at"> </span><span class="st">"clahe"</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">invert</span><span class="kw">:</span><span class="at"> </span><span class="ch">True</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuration for age inference </span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># -----Model paths-----</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">image_path</span><span class="kw">:</span><span class="at"> </span><span class="st">"G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">model_path</span><span class="kw">:</span><span class="at"> </span><span class="st">"C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Chapter 2 - Inference on Images/best_model.pth"</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">out_path</span><span class="kw">:</span><span class="at"> </span><span class="st">"G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/model_predictions/inference_results.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="A note on reproducibility">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A note on reproducibility
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For the sake of documenting workflows and facilitating future reproducibility, consider creating new configuration files for each model run (for example, one for each data set to be processed). There is no restriction on what this file can be called; you will tell the model which file to use when you <a href="../../content/docs/usage.html#running-the-model">execute the script</a>. Thus, some convention like <code>configuration-2024-atl.yml</code> might be sensible.</p>
+</div>
+</div>
+<section id="where-to-save-your-configuration-file" class="level3">
+<h3 class="anchored" data-anchor-id="where-to-save-your-configuration-file">Where to save your configuration file</h3>
+<p>There are two schools of thought when it comes to organizing the model files. It is ultimately up to the user to choose whichever convention is best for them.</p>
+<section id="option-1-alongside-the-model" class="level4">
+<h4 class="anchored" data-anchor-id="option-1-alongside-the-model">Option 1: Alongside the model</h4>
+<p>Storing the <code>configuration.yml</code> file in the same directory as the model scripts is advantageous when <a href="../../content/docs/usage.html#running-the-model">running the model</a> because you will not need to include the full directory path when you specify which configuration file to use. Since you will be executing the model script from the directory that script resides, the system will automatically find the <code>configuration.yml</code> file in that same directory.</p>
+<p>The disadvantage to this option is that your directory may quickly become cluttered with different configuration files for different model runs.</p>
+</section>
+<section id="option-2-alongside-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="option-2-alongside-the-data">Option 2: Alongside the data</h4>
+<p>One might opt instead to store the <code>configuration.yml</code> file in the same directory as the data to be processed or the directory where the model output will be written out. This is helpful for documenting workflows and ensuring reproducibility since it will be easy to see how a given data set was processed.</p>
+<p>The disadvantage to this option is that it will require the full directory path to be included when <a href="../../content/docs/usage.html#running-the-model">running the model</a> and specifying the configuration file to use.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These are by no means the only options. Whatever convention is adopted, consistency is key. You future self will thank you some day.</p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -834,13 +961,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/docs/setup.html" class="pagination-link" aria-label="Getting Started">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Getting Started</span>
+      <a href="../../content/docs/mount.html" class="pagination-link" aria-label="Mounting a Drive">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Mounting a Drive</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/docs/configuration.html" class="pagination-link" aria-label="Configuring the Model">
-        <span class="nav-page-text">Configuring the Model</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../content/docs/usage.html" class="pagination-link" aria-label="Using the Model">
+        <span class="nav-page-text">Using the Model</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -852,7 +979,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/blob/docs/content/docs/mount.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/blob/docs/content/docs/configuration.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p><a href="https://noaa.gov">NOAA</a> <br> <a href="https//fisheries.noaa.gov">NOAA Fisheries</a> <br> <a href="https://www.fisheries.noaa.gov/contact/southeast-fisheries-science-center">Southeast Fisheries Science Center</a></p>
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>. © CC-1.0</p>

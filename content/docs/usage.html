@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../content/docs/acknowledgements.html" rel="next">
-<link href="../../content/docs/mount.html" rel="prev">
+<link href="../../content/docs/configuration.html" rel="prev">
 <link href="../../theme/images/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -73,14 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6221b5c51817e989309ffdd424e298b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-c49a14756366245c53d0d43ed76454a6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-6221b5c51817e989309ffdd424e298b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-7d56ba7ebe4be84583ca0e96d9d7b64a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-24a3e24c7d8106572728627796a52b46.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-7d56ba7ebe4be84583ca0e96d9d7b64a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -395,6 +395,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../content/docs/configuration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Configuring the Model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../content/docs/usage.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Using the Model</span></a>
   </div>
@@ -419,8 +425,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#configuration-file" id="toc-configuration-file" class="nav-link active" data-scroll-target="#configuration-file">Configuration File</a></li>
+  <li><a href="#activate-the-virtual-environment" id="toc-activate-the-virtual-environment" class="nav-link active" data-scroll-target="#activate-the-virtual-environment">Activate the Virtual Environment</a></li>
   <li><a href="#running-the-model" id="toc-running-the-model" class="nav-link" data-scroll-target="#running-the-model">Running the model</a></li>
+  <li><a href="#when-finished" id="toc-when-finished" class="nav-link" data-scroll-target="#when-finished">When finished</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/blob/docs/content/docs/usage.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/SEFSC/FATES-BLH-OtolithAgeing/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -448,64 +455,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Running the Menhaden Ageing Model is straightforward and only requires two commands: one to pro-process the images and a second to run the age inference model. You will, however, need to modify a <code>configurations.yml</code> file. A sample is provided below, while the contents of this file are explained in more detail in the <a href="../../content/docs/index.html#options">model options</a>.</p>
-<section id="configuration-file" class="level3">
-<h3 class="anchored" data-anchor-id="configuration-file">Configuration File</h3>
-<p>A <code>configurations.yml</code> file is an easy way to control model performance. The most important settings in this file to pay attention to are:</p>
-<ol type="1">
-<li>The directory containing the scale images to process</li>
-<li>The directory where you want the model output file to be written</li>
-<li>The directory containing the trained model weights (<em>i.e.</em>, the <code>best_model.pth</code> file) and, if desired, the Segment Anything Model weights. If you simply cloned the repo and have not moved anything around, the trained model weights file will be alongside the model script in the <code>scripts</code> subdirectory in the cloned repository. The SAM weights will be wherever you saved them upon <a href="../../content/docs/setup.html#clone-the-repository">downloading them</a>.</li>
-</ol>
-<p>Absolute file paths are generally recommended to avoid unintended behavior but will vary from computer to computer.</p>
-<p>This YAML file is structured as <code>key: value</code> pairs. The order in which these entries are presented in the file does not matter, but <a href="../../content/docs/index.html#options">all keys need to be included and match exactly</a> as expected. For example:</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>configuration.yml</strong></pre>
-</div>
-<div class="sourceCode" id="cb1" data-filename="configuration.yml"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuration for pre-processsing scale images (crop, pad, and normalization)</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># -----Paths and general options-----</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">raw_image_path</span><span class="kw">:</span><span class="at"> </span><span class="st">"G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/images"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">preprocessed_image_path</span><span class="kw">:</span><span class="at"> </span><span class="st">"G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">input_type</span><span class="kw">:</span><span class="at"> </span><span class="st">".tif"</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">output_type</span><span class="kw">:</span><span class="at"> </span><span class="st">".jpg"</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">segment</span><span class="kw">:</span><span class="at"> </span><span class="st">"sam"</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># -----Binary Threshold segmentation parameters-----</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">binary_threshold</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># -----Segment Anything Model (SAM) parameters-----</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">points_per_side</span><span class="kw">:</span><span class="at"> </span><span class="dv">16</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">stability_score_thresh</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.93</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">downsample</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.5</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">sam_model_type</span><span class="kw">:</span><span class="at"> </span><span class="st">"vit_b"</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">sam_weights_path</span><span class="kw">:</span><span class="at"> </span><span class="st">"C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/sam_vit_b_01ec64.pth"</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># -----Cropping and padding parameters-----</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">pad</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.2</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">bottom_pad</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.4</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># -----Normalization options-----</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">normalization</span><span class="kw">:</span><span class="at"> </span><span class="st">"clahe"</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">invert</span><span class="kw">:</span><span class="at"> </span><span class="ch">True</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuration for age inference </span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># -----Model paths-----</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">image_path</span><span class="kw">:</span><span class="at"> </span><span class="st">"G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/cropped"</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">model_path</span><span class="kw">:</span><span class="at"> </span><span class="st">"C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Chapter 2 - Inference on Images/best_model.pth"</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">out_path</span><span class="kw">:</span><span class="at"> </span><span class="st">"G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/age_testing/model_predictions/inference_results.csv"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="running-the-model" class="level3">
-<h3 class="anchored" data-anchor-id="running-the-model">Running the model</h3>
+<p>Running the Menhaden Ageing Model is straightforward and only requires two commands: one to pro-process the images and a second to run the age inference model. You will, however, need to modify a <code>configurations.yml</code> file, as <a href="../../content/docs/configuration.html">described previously</a>. A sample is provided below, while the contents of this file are explained in more detail in the <a href="../../content/docs/index.html#options">model options</a>.</p>
+<section id="activate-the-virtual-environment" class="level3">
+<h3 class="anchored" data-anchor-id="activate-the-virtual-environment">Activate the Virtual Environment</h3>
 <p>First we need to activate the virtual environment we <a href="../../content/docs/setup.html#create-a-virtual-environment">previously configured</a>. In a terminal window, type:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate scaleageing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate scaleageing</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -519,11 +473,46 @@ Tip
 <p>If you named your virtual environment something other than “scaleageing”, invoke that name instead.</p>
 </div>
 </div>
-<p>Navigate into the directory containing the <code>Scale_Aging_Inference_Script_Image_Only.py</code> script. If you simply cloned the repo and have not moved anything around, this will in the <code>scripts</code> subdirectory in the cloned repository.</p>
+</section>
+<section id="running-the-model" class="level3">
+<h3 class="anchored" data-anchor-id="running-the-model">Running the model</h3>
+<p>Navigate (<code>cd</code>) into the directory containing the <code>Scale_Aging_Inference_Script_Image_Only.py</code> script. If you simply cloned the repo and have not moved anything around, this will in the <code>/Menhaden Scales Aging/Inference Script</code> subdirectory in the cloned repository. For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="st">"c:/Users/user.name/Documents/ageing/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Run the model as described in the <a href="../../index.html#usage">usage instructions</a>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Raw_Image_Preprocessing.py <span class="at">--config_path</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Aging_Inference_Script_Image_Only.py <span class="at">--config_path</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>where <code>&lt;config_dir&gt;</code> is the path to the configuration file containing model settings presented <a href="#configuration-file">above</a>.</p>
+<section id="examples" class="level4">
+<h4 class="anchored" data-anchor-id="examples">Examples</h4>
+<p>If your <code>configuration.yml</code> file is <a href="../../content/docs/configuration.html#option-1-alongside-the-model">stored alongside your model script</a>, your execution commands will simply be:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Raw_Image_Preprocessing.py <span class="at">--config_path</span> configuration.yml</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Aging_Inference_Script_Image_Only.py <span class="at">--config_path</span> configuration.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or, if you named your configuration file something unique such as <code>configuration-2024-atl.yml</code>, it might look like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Raw_Image_Preprocessing.py <span class="at">--config_path</span> configuration-2024-atl.yml</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Aging_Inference_Script_Image_Only.py <span class="at">--config_path</span> configuration-2024-atl.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Alternatively, your <code>configuration.yml</code> file is <a href="../../content/docs/configuration.html#option-2-alongside-the-data">stored alongside your data</a>, you will need to tell the script exactly where that file is located using its full directory path. Be sure to also include the correct file name, if applicable. For example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Raw_Image_Preprocessing.py <span class="at">--config_path</span> <span class="st">"c:/Users/user.name/Documents/data/2024/configuration.yml"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Aging_Inference_Script_Image_Only.py <span class="at">--config_path</span> <span class="st">"c:/Users/user.name/Documents/data/2024/configuration.yml"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you get a “File not found” error when running the script, carefully check your directories and file names, including those contained in the configuration file.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="when-finished" class="level3">
+<h3 class="anchored" data-anchor-id="when-finished">When finished</h3>
+<p>When you are finished running the model, deactivate the virtual environment to free up resources on your computer:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that there is no need to specify the environment when deactivating, as conda automatically deactivates the running environment.</p>
 
 
 </section>
@@ -943,8 +932,8 @@ Tip
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/docs/mount.html" class="pagination-link" aria-label="Mounting a Drive">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Mounting a Drive</span>
+      <a href="../../content/docs/configuration.html" class="pagination-link" aria-label="Configuring the Model">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Configuring the Model</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -11,4 +11,7 @@ The scripts can be run with the following console commands:
 ```
 python Scale_Raw_Image_Preprocessing.py --config_path configurations.yml
 python Scale_Aging_Inference_Script_Image_Only.py --config_path configurations.yml
+python Scale_Aging_Inference_Script_Multimodal.py --config_path configurations.yml
+python Scale_Aging_Training_Script_Image_Only.py --config_path configurations.yml
+python Scale_Aging_Training_Script_Multimodal_Only.py --config_path configurations.yml
 ```

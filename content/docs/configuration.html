@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.7.34">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,14 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-bc185b5c5bdbcb35c2eb49d8a876ef70.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-7d56ba7ebe4be84583ca0e96d9d7b64a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-24a3e24c7d8106572728627796a52b46.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-7d56ba7ebe4be84583ca0e96d9d7b64a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-a4d2bd4c4e77adba527c406749a91865.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c8574af216fe6bab5112cf112b877198.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-a4d2bd4c4e77adba527c406749a91865.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -436,7 +436,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/docs/index.html">Read the Docs</a></li><li class="breadcrumb-item"><a href="../../content/docs/index.html">Menhaden Ageing Model</a></li><li class="breadcrumb-item"><a href="../../content/docs/configuration.html">Configuring the Model</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Configuring the Model</h1>
-<p class="subtitle lead">Using the <code>configuration.yml</code> file</p>
+<p class="subtitle lead">Using the <code>configurations.yml</code> file</p>
 </div>
 
 
@@ -463,9 +463,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This YAML file is structured as <code>key: value</code> pairs. The order in which these entries are presented in the file does not matter, but <a href="../../content/docs/index.html#options">all keys need to be included and match exactly</a> as expected. For example:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>configuration.yml</strong></pre>
+<pre><strong>configurations.yml</strong></pre>
 </div>
-<div class="sourceCode" id="cb1" data-filename="configuration.yml"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
+<div class="sourceCode" id="cb1" data-filename="configurations.yml"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuration for pre-processsing scale images (crop, pad, and normalization)</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -521,12 +521,12 @@ A note on reproducibility
 <p>There are two schools of thought when it comes to organizing the model files. It is ultimately up to the user to choose whichever convention is best for them.</p>
 <section id="option-1-alongside-the-model" class="level4">
 <h4 class="anchored" data-anchor-id="option-1-alongside-the-model">Option 1: Alongside the model</h4>
-<p>Storing the <code>configuration.yml</code> file in the same directory as the model scripts is advantageous when <a href="../../content/docs/usage.html#running-the-model">running the model</a> because you will not need to include the full directory path when you specify which configuration file to use. Since you will be executing the model script from the directory that script resides, the system will automatically find the <code>configuration.yml</code> file in that same directory.</p>
+<p>Storing the <code>configurations.yml</code> file in the same directory as the model scripts is advantageous when <a href="../../content/docs/usage.html#running-the-model">running the model</a> because you will not need to include the full directory path when you specify which configuration file to use. Since you will be executing the model script from the directory that script resides, the system will automatically find the <code>configurations.yml</code> file in that same directory.</p>
 <p>The disadvantage to this option is that your directory may quickly become cluttered with different configuration files for different model runs.</p>
 </section>
 <section id="option-2-alongside-the-data" class="level4">
 <h4 class="anchored" data-anchor-id="option-2-alongside-the-data">Option 2: Alongside the data</h4>
-<p>One might opt instead to store the <code>configuration.yml</code> file in the same directory as the data to be processed or the directory where the model output will be written out. This is helpful for documenting workflows and ensuring reproducibility since it will be easy to see how a given data set was processed.</p>
+<p>One might opt instead to store the <code>configurations.yml</code> file in the same directory as the data to be processed or the directory where the model output will be written out. This is helpful for documenting workflows and ensuring reproducibility since it will be easy to see how a given data set was processed.</p>
 <p>The disadvantage to this option is that it will require the full directory path to be included when <a href="../../content/docs/usage.html#running-the-model">running the model</a> and specifying the configuration file to use.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">

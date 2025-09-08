@@ -106,7 +106,7 @@ Then:
 conda env create --name scaleageing --file="environment.yml"
 ```
 
-This command creates a virtual environment called `scaleageing` and downloads and installs all of the package dependencies listed in the `environment.yml` file contained in the repo. The preceding `./` means that file is located "here" in the present working directory to which you navigated in the previous step.
+This command creates a virtual environment called `scaleageing` and downloads and installs all of the package dependencies listed in the `environment.yml` file contained in the repo.
 
 Note that this virtual environment can be named anything at all, but remember what you call it -- and keep it simple -- because it will be invoked by name each time you use the model.
 

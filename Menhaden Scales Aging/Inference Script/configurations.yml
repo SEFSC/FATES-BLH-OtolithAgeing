@@ -68,8 +68,8 @@ bottom_pad: 0.4
 normalization: "none"
 
 # Option to invert the pixel values in gray scale before normalization. This will make dark regions light and light regions dark.
-# Default: True
-invert: True
+# Default: False
+invert: False
 
 
 #-----------------------------------------------------------------------------------------------------

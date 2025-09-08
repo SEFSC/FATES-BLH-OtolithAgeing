@@ -20,12 +20,12 @@ output_type: ".jpg"
 # Scale segmentation options are "binary" for binary thresholding and "sam" for Segment Anything Model (SAM)
 # Binary thresholding should work fine if images are high contrast with light scales on a dark background.
 # SAM is more robust to variable image conditions but requires more processing time and a GPU.
-# Default: "sam"
-segment: "sam"
+# Default: "binary"
+segment: "binary"
 
 
 # -----Binary Threshold segmentation parameters-----
-# Binary threshold pixel value for differentiation between foreground (scale) and background.
+# Binary threshold pixel value for differentiation between foreground (scale) and background. Tweak this as needed to ensure the scales are properly located within the images.
 # Default: 100.
 binary_threshold: 100
 
@@ -53,21 +53,22 @@ sam_weights_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithA
 
 
 # -----Cropping parameters-----
-# Padding for top and sides of cropped image. Defined as a fraction of the original cropped image size. Bottom padding is controlled by `bottom_pad`.
+# Padding for top and sides of cropped image. Defined as a fraction of the original cropped image size. Bottom padding is controlled by `bottom_pad`. Adjust as needed to ensure the there is a margin around the top and sides of the extracted scale. Setting a value low may because the scale to "bleed" when the image is resized for input to the model. Setting a value too high may include too much background and make the scale too small in the image.
 # Default: 0.2
 pad: 0.2
 
-# Padding for bottom of cropped image. This is defined separately since for scale images, the bottom is usually visually distinct from the body and may be missed in the segmentation.
+# Padding for bottom of cropped image. This is defined separately since for scale images, the bottom is usually visually distinct from the body and may be missed in the segmentation. Adjust as needed to ensure the there is a margin at the bottom of the extracted scale. Setting a value low may because the scale to "bleed" when the image is resized for input to the model. Setting a value too high may include too much background and make the scale too small in the image.
 # Default: 0.4
 bottom_pad: 0.4
 
+
 # -----Normalization options-----
 # After cropping and padding, there is an additional option to normalize the image.  The options are "none", for no normalization, "he" for histogram equalization, and "clahe" for Contrast Limited Adaptive Histogram Equalization.
-# Note that the `best_model_images.pth` model should be used with "none", while `best_model_images_eq.pth` should be used with "he" or "clahe".
+# Note that the `best_model_images.pth` model should be used with "none", while `best_model_images_eq.pth` should be used with "he" (see below). No trained model currently exists for "clahe."
 # Default: "none"
 normalization: "none"
 
-# Option to invert the pixel values in gray scale before normalization. This will make dark regions light and light regions dark.
+# Option to invert the pixel values in gray scale before normalization. This will make dark regions light and light regions dark. This is only needed if the scales are dark on a light background.
 # Default: False
 invert: False
 
@@ -79,8 +80,11 @@ invert: False
 # Path to preprocessed image folder. Best to include the full path in quotations. This should match `preprocessed_image_path` from the pre-processing step.
 image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/cropped"
 
-# Path to model weights (directory and file name of weights file). Best to include the full path in quotations.
-model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/best_model_images_eq.pth"
-
 # Path to save results (directory and file name for CSV file). Best to include the full path in quotations.
 out_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/inference_results.csv"
+
+# Path to model weights (directory and file name of weights file). Best to include the full path in quotations. Be sure to use the model that matches the normalization option above:
+#   - best_model_images.pth for normalization: "none"
+#   - best_model_images_eq.pth for normalization: "he"
+model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/best_model_images_eq.pth"
+

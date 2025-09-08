@@ -17,7 +17,7 @@ The internal workflow is as follows:
 4. The scale is then cropped out of the original image and padded to make it square.
 5. The new square image containing just the scale of interest is passed to a trained custom [residual neural network](https://en.wikipedia.org/wiki/Residual_neural_network) (resnet) deep learning classification model. Model output is saved to a CSV file.
 
-Implementation instructions follow. Be sure to [set up and configure a Python environment](content/docs/setup.qmd) before the first use.
+Implementation instructions follow. Be sure to [set up and configure a Python environment](setup.qmd) before the first use.
 
 ## Usage
 

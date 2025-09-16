@@ -82,6 +82,7 @@ image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_
 
 # Path to the CSV file with metadata for the inference images.
 csv_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/2021_Plant_10_TimTEST/Metadata/2021_Plant10_Metadata.csv"
+metadata_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/2021_Plant_10_TimTEST/Metadata/2021_Plant10_Metadata.csv"
 
 # Path to model weights (directory and file name of weights file). Best to include the full path in quotations:
 #   - best_model_multi.pth

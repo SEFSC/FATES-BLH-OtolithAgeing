@@ -659,7 +659,7 @@ def main():
     # Load the dataset for inference
     test_dataset = FishTestDataset(
         image_dir=config["image_path"],
-        csv_path=config["csv_path"],
+        csv_path=config["metadata_path"],
         file_extension=config["output_type"],
         transform=data_transforms
     )

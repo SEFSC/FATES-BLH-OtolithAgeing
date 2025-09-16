@@ -82,7 +82,7 @@ The model code and most of its dependencies are [available on GitHub]({{< meta w
 
    if you want the repo contents to be downloaded into a new subdirectory called `{{< meta repo.name >}}`. This is just personal preference. (Note the difference between the two commands is the dot `.` at the end.)
 
-### Download Segmentation Model (recommended)
+### Download Segmentation Model
 
 This model has the option of using a [Segment Anything Model](https://arxiv.org/abs/2408.00714) (SAM) to find the scale within each image. To use this method, one must [download a model checkpoint](https://github.com/facebookresearch/segment-anything?tab=readme-ov-file#model-checkpoints). The [ViT-B model](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth) is recommended. For convenience, consider saving this file in the same directory as model script, for example `~/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script`.
 

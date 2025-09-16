@@ -1,6 +1,6 @@
 ---
 title: "Menhaden Ageing Model"
-subtitle: "An innovative, state-of-the-art deep learning model for automatically ageing menhaden samples using scale images"
+subtitle: "An innovative, state-of-the-art deep learning model for automatically ageing menhaden samples using scale images and fish length, weight, and month of catch"
 page-layout: full
 ---
 

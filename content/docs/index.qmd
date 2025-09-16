@@ -1,11 +1,11 @@
 ---
 title: "Menhaden Ageing Model"
-subtitle: "An innovative, state-of-the-art deep learning model for automatically ageing menhaden samples using scale images"
+subtitle: "An innovative, state-of-the-art deep learning model for automatically ageing menhaden samples using scale images and fish length, weight, and month of catch"
 page-layout: full
 order: 1
 ---
 
-This Menhaden Ageing Model provides an innovative method for automatically estimating Menhaden age using scale images. Built upon state-of-the-art deep learning algorithms, it enables rapid generation of fish age predictions by simply pointing to a directory containing magnified images of scale samples.
+This Menhaden Ageing Model provides an innovative method for automatically estimating Menhaden age using scale images and fish length, weight, and month of catch (hereafter, "metadata"). Built upon state-of-the-art deep learning algorithms, it enables rapid generation of fish age predictions by simply pointing to a directory containing configuration file that instructs the model where to find the data and metadata, how to preprocess the images, and where to write the output.
 
 ## About
 
@@ -15,7 +15,7 @@ The internal workflow is as follows:
 2. Imperfections in the new masked images are cleaned up using [morphological opening](https://en.wikipedia.org/wiki/Opening_(morphology)) and [closing](https://en.wikipedia.org/wiki/Closing_(morphology)) techniques to remove undesired background noise and capture any missed portions of the scale.
 3. The contours of the masked shape are identified in order to extract the object of interest (*i.e.*, the scale).
 4. The scale is then cropped out of the original image and padded to make it square.
-5. The new square image containing just the scale of interest is passed to a trained custom [residual neural network](https://en.wikipedia.org/wiki/Residual_neural_network) (resnet) deep learning classification model. Model output is saved to a CSV file.
+5. The new square image containing just the scale of interest is passed to a trained custom [residual neural network](https://en.wikipedia.org/wiki/Residual_neural_network) (resnet) deep learning classification model along with a metadata CSV file. Model output is saved to a CSV file.
 
 Implementation instructions follow. Be sure to [set up and configure a Python environment](/content/docs/setup.qmd) before the first use.  
 
@@ -33,16 +33,16 @@ or
 python Scale_Raw_Image_Preprocessing.py -c <config_dir>
 ```
 
-where `<config_dir>` is the path to the configuration file containing model settings described [below](#options). The ageing model itself is wrapped inside a second Python script called `Scale_Aging_Inference_Script_Image_Only.py`. To execute, run the following command in a command line terminal:
+where `<config_dir>` is the path to the configuration file containing model settings described [below](#options). The ageing model itself is wrapped inside a second Python script called `Scale_Aging_Inference_Script_Multimodal.py`. To execute, run the following command in a command line terminal:
 
 ```bash
-python Scale_Aging_Inference_Script_Image_Only.py --config_path <config_dir>
+python Scale_Aging_Inference_Script_Multimodal.py --config_path <config_dir>
 ```
 
 or
 
 ```bash
-python Scale_Aging_Inference_Script_Image_Only.py -c <config_dir>
+python Scale_Aging_Inference_Script_Multimodal.py -c <config_dir>
 ```
 
 <br>
@@ -50,7 +50,7 @@ For more information, including an execution example, see [Using the Model](/con
 
 ## Options
 
-All user options are contained in a config YAML file (called `configurations.yml` by default, but can be named anything) to allow easier control and greater reproducibility. Settings are entered as `key: value` pairs as described below. The first set of parameters control the image processing routine while the second set control the age model itself.
+All user options are contained in a config YAML file (called `multimodal_configs.yml` by default, but can be named anything) to allow easier control and greater reproducibility. Settings are entered as `key: value` pairs as described below. The first set of parameters control the image processing routine while the second set control the age model itself.
 
 ### Pre-Processing Options
 
@@ -104,6 +104,7 @@ The following options control the age inference model. They are entered into the
 | Key                       | Description                                     |
 |---------------------------|-------------------------------------------------|
 | `image_path`              | Path to preprocessed image folder. Best to include the full path in quotations. This should match `preprocessed_image_path` from the pre-processing step. |
+| `metadata_path`         | Path to a single CSV file containing the metadata for all images in `image_path` (directory and metadata file name). Best to include the full path in quotations. |
 | `model_path`            | Path to model weights (directory and file name of weights file). Best to include the full path in quotations. |
 | `out_path`              | Path to save results (directory and file name for CSV file). Best to include the full path in quotations. |
 :Configuration for age inference model {tbl-colwidths="[27,75]"}
@@ -111,8 +112,9 @@ The following options control the age inference model. They are entered into the
 ::: {.callout-note title="The most important settings in this file to pay attention to are:"}
 
 1. The directory containing the scale images to process
-2. The directory where you want the model output file to be written
-3. The directory containing the trained model weights (*i.e.*, the `best_model.pth` file) and, if desired, the Segment Anything Model weights. If you simply cloned the repo and have not moved anything around, the trained model weights file will be alongside the model script in the `scripts` subdirectory in the cloned repository. The SAM weights will be wherever you saved them upon [downloading them](/content/docs/setup.qmd#clone-the-repository).
+2. The directory containing the accompanying metadata
+3. The directory where you want the model output file to be written
+4. The directory containing the trained model weights (*i.e.*, the `best_model_multi.pth` file) and, if desired, the Segment Anything Model weights. If you simply cloned the repo and have not moved anything around, the trained model weights file will be alongside the model script in the `scripts` subdirectory in the cloned repository. The SAM weights will be wherever you saved them upon [downloading them](/content/docs/setup.qmd#clone-the-repository).
 :::
 
 ::: {.callout-note title="Absolute vs. relative file paths"}
@@ -156,6 +158,12 @@ See [Getting Started](/content/docs/setup.qmd) for installation and setup instru
         <li> Adds optional histogram normalization (simple histogram equalization and Contrast Limited Adaptive Histogram Equalization) </li>
         <li> Separates image pre-processing and scale ageing into two separate scripts </li>
         <li> Model settings and hyperparameters, including input and output file paths, are now listed in a configuration YAML file passed as a single command line argument to both Python scripts </li>
+      </ul>
+  </ul>
+  <ul>
+    <li> <b>2025.0.3 (BETA)</b> (September 2025):
+      <ul>
+        <li> Now describes the multimodal model (images plus metadata) and how to use it </li>
       </ul>
   </ul>
 </details>

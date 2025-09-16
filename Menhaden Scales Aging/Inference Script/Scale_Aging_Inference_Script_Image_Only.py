@@ -78,56 +78,77 @@ class FishTestDataset(Dataset):
         # Open the specified image
         img_path = os.path.join(self.image_dir, str(self.image_name[index]))
         image = Image.open(img_path)
+        
         # Transform the image, if transforms are provided
         if self.transforms:
             image = self.transforms(image)
 
         return image, self.image_name[index]
-        
-# Parse command line arguments. Currently only requires a path to a configuration yaml file.
-parser = argparse.ArgumentParser()
-parser.add_argument("-c", "--config_path", help="path to configuration yaml file")
-args = parser.parse_args()
 
-# Open the configuration file and read in the parameters
-with open(args.config_path, 'r') as file:
-    config = yaml.safe_load(file)
+def main():
+    """Main function to execute the inference script.""" 
+    # Parse command line arguments. Currently only requires a path to a configuration yaml file.
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-c", "--config_path", help="path to configuration yaml file")
+    args = parser.parse_args()
 
-# Image transformations: resizing, cropping, normalization
-data_transforms = transforms.Compose(
-        [
-            transforms.Resize(224),
-            transforms.CenterCrop(224),
-            transforms.ToTensor(),
-            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
-        ]
-    )
-test_dataset = FishTestDataset(image_dir=config["image_path"], transform=data_transforms)
-test_loader = DataLoader(test_dataset, batch_size=24, shuffle=False, drop_last=False)
+    # Open the configuration file and read in the parameters
+    try:
+        with open(args.config_path, 'r') as file:
+            config = yaml.safe_load(file)
+    except FileNotFoundError:
+        print(f"Error: The configuration file was not found at {args.config_path}")
+        return
 
-# Load the model using GPU, if available, in evaluation mode.
-# Number of classes corresponds to the number of age classes.
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-model = resnet18(num_classes=5)
-model.load_state_dict(torch.load(config["model_path"]))
-model.eval()    
-model.to(device)
+    # Image transformations: resizing, cropping, normalization
+    data_transforms = transforms.Compose(
+            [
+                transforms.Resize(224),
+                transforms.CenterCrop(224),
+                transforms.ToTensor(),
+                transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
+            ]
+        )
+    test_dataset = FishTestDataset(image_dir=config["image_path"], transform=data_transforms)
+    test_loader = DataLoader(test_dataset, batch_size=24, shuffle=False, drop_last=False)
 
-# Create output file and write header
-file = open(config["out_path"], 'w')
-file.write("Image Name, Predicted Age\n")
+    # Load the model using GPU, if available, in evaluation mode.
+    # Number of classes corresponds to the number of age classes.
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    model = resnet18(num_classes=5)
 
-# Loop through the dataset and make predictions
-for images, img_path in tqdm(test_loader):
-    images = images.to(device)
-    outputs = model(images)
-    outputs = torch.squeeze(outputs)
-    _, preds = torch.max(outputs, 1)
-    preds = preds.cpu().detach().numpy()
-    for i in range(preds.shape[0]):
-        age = str(preds[i])
-        # Change the maximum age class to "4+"
-        if(preds[i] == 4):
-            age = "4+"
-        file.write("%s,%s\n" % (img_path[i], age))
-file.close()
+    # Load the pre-trained model weights
+    try:
+        model.load_state_dict(torch.load(config["model_path"]))
+        print("Model weights loaded successfully.")
+    except Exception as e:
+        print(f"Error loading model weights: {e}")
+        return
+    model.eval()    
+    model.to(device)
+
+    # Create output file and write header
+    try:
+        with open(config["out_path"], 'w') as file:
+            file.write("Image Name, Predicted Age\n")
+
+            # Loop through the dataset and make predictions
+            for images, img_path in tqdm(test_loader):
+                images = images.to(device)
+                outputs = model(images)
+                outputs = torch.squeeze(outputs)
+                _, preds = torch.max(outputs, 1)
+                preds = preds.cpu().detach().numpy()
+                for i in range(preds.shape[0]):
+                    age = str(preds[i])
+                    # Change the maximum age class to "4+"
+                    if(preds[i] == 4):
+                        age = "4+"
+                    file.write("%s,%s\n" % (img_path[i], age))
+        print(f"Inference complete. Results saved to {config['out_path']}")
+    
+    except Exception as e:
+        print(f"An error occurred during inference: {e}")
+
+if __name__ == "__main__":
+    main()

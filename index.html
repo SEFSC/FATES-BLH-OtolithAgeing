@@ -469,7 +469,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This Menhaden Ageing Model provides an innovative method for automatically estimating Menhaden age using scale images and fish length, weight, and month of catch (hereafter, “metadata”). Built upon state-of-the-art deep learning algorithms, it enables rapid generation of fish age predictions by simply pointing to a directory containing configuration file that instructs the model where to find the data and metadata, how to preprocess the images, and where to write the output.</p>
+<p>This Menhaden Ageing Model provides an innovative method for automatically estimating Menhaden age using scale images and fish length, weight, and month of catch (hereafter, “metadata”.) Built upon state-of-the-art deep learning algorithms, it enables rapid generation of fish age predictions by simply pointing to a directory containing configuration file that instructs the model where to find the data and metadata, how to preprocess the images, and where to write the output.</p>
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
 <p>The internal workflow is as follows:</p>
@@ -478,7 +478,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Imperfections in the new masked images are cleaned up using <a href="https://en.wikipedia.org/wiki/Opening_(morphology)">morphological opening</a> and <a href="https://en.wikipedia.org/wiki/Closing_(morphology)">closing</a> techniques to remove undesired background noise and capture any missed portions of the scale.</li>
 <li>The contours of the masked shape are identified in order to extract the object of interest (<em>i.e.</em>, the scale).</li>
 <li>The scale is then cropped out of the original image and padded to make it square.</li>
-<li>The new square image containing just the scale of interest is passed to a trained custom <a href="https://en.wikipedia.org/wiki/Residual_neural_network">residual neural network</a> (resnet) deep learning classification model along with a metadata CSV file. Model output is saved to a CSV file.</li>
+<li>The new square image containing just the scale of interest is passed to a trained custom <a href="https://en.wikipedia.org/wiki/Residual_neural_network">residual neural network</a> (resnet) deep learning classification model along with a <a href="metadata.qmd">metadata CSV file</a> described later. Model output is saved to a CSV file.</li>
 </ol>
 <p>Implementation instructions follow. Be sure to <a href="./content/docs/setup.html">set up and configure a Python environment</a> before the first use.</p>
 </section>

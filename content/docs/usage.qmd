@@ -6,7 +6,7 @@ metadata-files:
 order: 5
 ---
 
-Running the Menhaden Ageing Model is straightforward and only requires two commands: one to pro-process the images and a second to run the age inference model. You will, however, need to modify a `multimodal_configs.yml` file, as [described previously](configuration.qmd). A sample is provided below, while the contents of this file are explained in more detail in the [model options](index.qmd#options).
+Running the Menhaden Ageing Model is straightforward and only requires two commands: one to pre-process the images and a second to run the age inference model. You will, however, need to modify a `multimodal_configs.yml` file, as [described previously](configuration.qmd). A sample is provided below, while the contents of this file are explained in more detail in the [model options](index.qmd#options).
 
 ### Activate the Virtual Environment
 

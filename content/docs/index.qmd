@@ -5,7 +5,7 @@ page-layout: full
 order: 1
 ---
 
-This Menhaden Ageing Model provides an innovative method for automatically estimating Menhaden age using scale images and fish length, weight, and month of catch (hereafter, "metadata"). Built upon state-of-the-art deep learning algorithms, it enables rapid generation of fish age predictions by simply pointing to a directory containing configuration file that instructs the model where to find the data and metadata, how to preprocess the images, and where to write the output.
+This Menhaden Ageing Model provides an innovative method for automatically estimating Menhaden age using scale images and fish length, weight, and month of catch (hereafter, "metadata".) Built upon state-of-the-art deep learning algorithms, it enables rapid generation of fish age predictions by simply pointing to a directory containing configuration file that instructs the model where to find the data and metadata, how to preprocess the images, and where to write the output.
 
 ## About
 
@@ -15,7 +15,7 @@ The internal workflow is as follows:
 2. Imperfections in the new masked images are cleaned up using [morphological opening](https://en.wikipedia.org/wiki/Opening_(morphology)) and [closing](https://en.wikipedia.org/wiki/Closing_(morphology)) techniques to remove undesired background noise and capture any missed portions of the scale.
 3. The contours of the masked shape are identified in order to extract the object of interest (*i.e.*, the scale).
 4. The scale is then cropped out of the original image and padded to make it square.
-5. The new square image containing just the scale of interest is passed to a trained custom [residual neural network](https://en.wikipedia.org/wiki/Residual_neural_network) (resnet) deep learning classification model along with a metadata CSV file. Model output is saved to a CSV file.
+5. The new square image containing just the scale of interest is passed to a trained custom [residual neural network](https://en.wikipedia.org/wiki/Residual_neural_network) (resnet) deep learning classification model along with a [metadata CSV file](metadata.qmd) described later. Model output is saved to a CSV file.
 
 Implementation instructions follow. Be sure to [set up and configure a Python environment](/content/docs/setup.qmd) before the first use.  
 

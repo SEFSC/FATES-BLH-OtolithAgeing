@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,18 +68,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../theme/images/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-befe23ebd2f54d8af2c8a89d1a1611f1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-a4d2bd4c4e77adba527c406749a91865.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-c8574af216fe6bab5112cf112b877198.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-a4d2bd4c4e77adba527c406749a91865.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2b0cd566d7486f1a9e892e08b667cf93.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-5390411c604747c3433c6d1613915d6d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-2b0cd566d7486f1a9e892e08b667cf93.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -280,6 +281,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Fish Ageing Models</span>
     </a>
@@ -347,7 +350,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../theme/images/NOAA_FISHERIES_logoV.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../../theme/images/NOAA_FISHERIES_logoV.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../theme/images/NOAA_FISHERIES_logoV.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
     <a href="https://noaa.gov" title="NOAA Home" class="quarto-navigation-tool px-1" aria-label="NOAA Home"><i class="bi bi-house"></i></a>
@@ -400,6 +404,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../content/docs/metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fish Metadata</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../content/docs/usage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Using the Model</span></a>
   </div>
@@ -443,7 +453,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/docs/index.html">Read the Docs</a></li><li class="breadcrumb-item"><a href="../../content/docs/index.html">Menhaden Ageing Model</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Menhaden Ageing Model</h1>
-<p class="subtitle lead">An innovative, state-of-the-art deep learning model for automatically ageing menhaden samples using scale images</p>
+<p class="subtitle lead">An innovative, state-of-the-art deep learning model for automatically ageing menhaden samples using scale images and fish length, weight, and month of catch</p>
 </div>
 
 
@@ -460,7 +470,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>This Menhaden Ageing Model provides an innovative method for automatically estimating Menhaden age using scale images. Built upon state-of-the-art deep learning algorithms, it enables rapid generation of fish age predictions by simply pointing to a directory containing magnified images of scale samples.</p>
+<p>This Menhaden Ageing Model provides an innovative method for automatically estimating Menhaden age using scale images and fish length, weight, and month of catch (hereafter, “metadata”). Built upon state-of-the-art deep learning algorithms, it enables rapid generation of fish age predictions by simply pointing to a directory containing configuration file that instructs the model where to find the data and metadata, how to preprocess the images, and where to write the output.</p>
 <section id="about" class="level2">
 <h2 class="anchored" data-anchor-id="about">About</h2>
 <p>The internal workflow is as follows:</p>
@@ -469,25 +479,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Imperfections in the new masked images are cleaned up using <a href="https://en.wikipedia.org/wiki/Opening_(morphology)">morphological opening</a> and <a href="https://en.wikipedia.org/wiki/Closing_(morphology)">closing</a> techniques to remove undesired background noise and capture any missed portions of the scale.</li>
 <li>The contours of the masked shape are identified in order to extract the object of interest (<em>i.e.</em>, the scale).</li>
 <li>The scale is then cropped out of the original image and padded to make it square.</li>
-<li>The new square image containing just the scale of interest is passed to a trained custom <a href="https://en.wikipedia.org/wiki/Residual_neural_network">residual neural network</a> (resnet) deep learning classification model. Model output is saved to a CSV file.</li>
+<li>The new square image containing just the scale of interest is passed to a trained custom <a href="https://en.wikipedia.org/wiki/Residual_neural_network">residual neural network</a> (resnet) deep learning classification model along with a metadata CSV file. Model output is saved to a CSV file.</li>
 </ol>
 <p>Implementation instructions follow. Be sure to <a href="../../content/docs/setup.html">set up and configure a Python environment</a> before the first use.</p>
 </section>
 <section id="usage" class="level2">
 <h2 class="anchored" data-anchor-id="usage">Usage</h2>
 <p>Running the model requires two steps. First, raw images must be pre-processed in order to crop out the scale of interest from the full image, pad the cropped image to ensure the full scale is captured, and (optionally) normalize the cropped image to facilitate ageing. This is all done using the <code>Scale_Raw_Image_Preprocessing.py</code> Python script. To execute, run the following command in a command line terminal:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Raw_Image_Preprocessing.py <span class="at">--config_path</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Raw_Image_Preprocessing.py <span class="at">--config_path</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>or</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Raw_Image_Preprocessing.py <span class="at">-c</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>where <code>&lt;config_dir&gt;</code> is the path to the configuration file containing model settings described <a href="#options">below</a>. The ageing model itself is wrapped inside a second Python script called <code>Scale_Aging_Inference_Script_Image_Only.py</code>. To execute, run the following command in a command line terminal:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Aging_Inference_Script_Image_Only.py <span class="at">--config_path</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Raw_Image_Preprocessing.py <span class="at">-c</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>where <code>&lt;config_dir&gt;</code> is the path to the configuration file containing model settings described <a href="#options">below</a>. The ageing model itself is wrapped inside a second Python script called <code>Scale_Aging_Inference_Script_Multimodal.py</code>. To execute, run the following command in a command line terminal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Aging_Inference_Script_Multimodal.py <span class="at">--config_path</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>or</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Aging_Inference_Script_Image_Only.py <span class="at">-c</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> Scale_Aging_Inference_Script_Multimodal.py <span class="at">-c</span> <span class="op">&lt;</span>config_dir<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><br> For more information, including an execution example, see <a href="../../content/docs/usage.html">Using the Model</a> in the docs.</p>
 </section>
 <section id="options" class="level2">
 <h2 class="anchored" data-anchor-id="options">Options</h2>
-<p>All user options are contained in a config YAML file (called <code>configurations.yml</code> by default, but can be named anything) to allow easier control and greater reproducibility. Settings are entered as <code>key: value</code> pairs as described below. The first set of parameters control the image processing routine while the second set control the age model itself.</p>
+<p>All user options are contained in a config YAML file (called <code>multimodal_configs.yml</code> by default, but can be named anything) to allow easier control and greater reproducibility. Settings are entered as <code>key: value</code> pairs as described below. The first set of parameters control the image processing routine while the second set control the age model itself.</p>
 <section id="pre-processing-options" class="level3">
 <h3 class="anchored" data-anchor-id="pre-processing-options">Pre-Processing Options</h3>
 <table class="caption-top table">
@@ -627,10 +637,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Path to preprocessed image folder. Best to include the full path in quotations. This should match <code>preprocessed_image_path</code> from the pre-processing step.</td>
 </tr>
 <tr class="even">
+<td><code>metadata_path</code></td>
+<td>Path to a single CSV file containing the metadata for all images in <code>image_path</code> (directory and metadata file name). Best to include the full path in quotations.</td>
+</tr>
+<tr class="odd">
 <td><code>model_path</code></td>
 <td>Path to model weights (directory and file name of weights file). Best to include the full path in quotations.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>out_path</code></td>
 <td>Path to save results (directory and file name for CSV file). Best to include the full path in quotations.</td>
 </tr>
@@ -642,14 +656,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-The most important settings in this file to pay attention to are:
+<span class="screen-reader-only">Note</span>The most important settings in this file to pay attention to are:
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li>The directory containing the scale images to process</li>
+<li>The directory containing the accompanying metadata</li>
 <li>The directory where you want the model output file to be written</li>
-<li>The directory containing the trained model weights (<em>i.e.</em>, the <code>best_model.pth</code> file) and, if desired, the Segment Anything Model weights. If you simply cloned the repo and have not moved anything around, the trained model weights file will be alongside the model script in the <code>scripts</code> subdirectory in the cloned repository. The SAM weights will be wherever you saved them upon <a href="../../content/docs/setup.html#clone-the-repository">downloading them</a>.</li>
+<li>The directory containing the trained model weights (<em>i.e.</em>, the <code>best_model_multi.pth</code> file) and, if desired, the Segment Anything Model weights. If you simply cloned the repo and have not moved anything around, the trained model weights file will be alongside the model script in the <code>scripts</code> subdirectory in the cloned repository. The SAM weights will be wherever you saved them upon <a href="../../content/docs/setup.html#clone-the-repository">downloading them</a>.</li>
 </ol>
 </div>
 </div>
@@ -659,7 +674,7 @@ The most important settings in this file to pay attention to are:
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Absolute vs.&nbsp;relative file paths
+<span class="screen-reader-only">Note</span>Absolute vs.&nbsp;relative file paths
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -720,6 +735,15 @@ Model settings and hyperparameters, including input and output file paths, are n
 </li>
 </ul>
 </li></ul>
+<ul>
+<li>
+<b>2025.0.3 (BETA)</b> (September 2025):
+<ul>
+<li>
+Now describes the multimodal model (images plus metadata) and how to use it
+</li>
+</ul>
+</li></ul>
 </details>
 <p><br></p>
 <div class="callout callout-style-default callout-important callout-titled" title="License">
@@ -728,7 +752,7 @@ Model settings and hyperparameters, including input and output file paths, are n
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-License
+<span class="screen-reader-only">Important</span>License
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -741,7 +765,7 @@ License
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Disclaimer
+<span class="screen-reader-only">Important</span>Disclaimer
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -817,13 +841,14 @@ Disclaimer
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

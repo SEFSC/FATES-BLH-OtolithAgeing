@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sefsc.github.io/FATES-BLH-OtolithAgeing/index.html</loc>
-    <lastmod>2025-09-09T18:58:24.990Z</lastmod>
+    <lastmod>2025-09-16T22:52:20.317Z</lastmod>
   </url>
   <url>
-    <loc>https://sefsc.github.io/FATES-BLH-OtolithAgeing/content/docs/mount.html</loc>
-    <lastmod>2025-09-09T18:58:24.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sefsc.github.io/FATES-BLH-OtolithAgeing/content/docs/index.html</loc>
-    <lastmod>2025-09-09T18:58:24.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sefsc.github.io/FATES-BLH-OtolithAgeing/content/docs/acknowledgements.html</loc>
-    <lastmod>2025-09-09T18:58:24.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sefsc.github.io/FATES-BLH-OtolithAgeing/content/docs/usage.html</loc>
-    <lastmod>2025-09-09T18:58:24.989Z</lastmod>
-  </url>
-  <url>
-    <loc>https://sefsc.github.io/FATES-BLH-OtolithAgeing/content/docs/setup.html</loc>
-    <lastmod>2025-09-09T18:58:24.989Z</lastmod>
+    <loc>https://sefsc.github.io/FATES-BLH-OtolithAgeing/content/docs/metadata.html</loc>
+    <lastmod>2025-09-16T22:52:20.317Z</lastmod>
   </url>
   <url>
     <loc>https://sefsc.github.io/FATES-BLH-OtolithAgeing/content/docs/configuration.html</loc>
-    <lastmod>2025-09-09T18:58:24.989Z</lastmod>
+    <lastmod>2025-09-16T22:52:20.317Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sefsc.github.io/FATES-BLH-OtolithAgeing/content/docs/setup.html</loc>
+    <lastmod>2025-09-16T22:52:20.317Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sefsc.github.io/FATES-BLH-OtolithAgeing/content/docs/usage.html</loc>
+    <lastmod>2025-09-16T22:52:20.317Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sefsc.github.io/FATES-BLH-OtolithAgeing/content/docs/acknowledgements.html</loc>
+    <lastmod>2025-09-16T22:52:20.317Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sefsc.github.io/FATES-BLH-OtolithAgeing/content/docs/index.html</loc>
+    <lastmod>2025-09-16T22:52:20.317Z</lastmod>
+  </url>
+  <url>
+    <loc>https://sefsc.github.io/FATES-BLH-OtolithAgeing/content/docs/mount.html</loc>
+    <lastmod>2025-09-16T22:52:20.317Z</lastmod>
   </url>
 </urlset>

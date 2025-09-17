@@ -80,8 +80,7 @@ invert: False
 # Path to preprocessed image folder. Best to include the full path in quotations. This should match `preprocessed_image_path` from the pre-processing step.
 image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/2021_Plant_10_TimTEST/cropped_binary_none_InvertFalse"
 
-# Path to the CSV file with metadata for the inference images.
-csv_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/2021_Plant_10_TimTEST/Metadata/2021_Plant10_Metadata.csv"
+# Path to the CSV file with metadata for the inference images. Ignored if using the "image only" model.
 metadata_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/2021_Plant_10_TimTEST/Metadata/2021_Plant10_Metadata.csv"
 
 # Path to model weights (directory and file name of weights file). Best to include the full path in quotations:

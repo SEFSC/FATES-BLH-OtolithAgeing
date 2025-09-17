@@ -80,11 +80,16 @@ invert: False
 # Path to preprocessed image folder. Best to include the full path in quotations. This should match `preprocessed_image_path` from the pre-processing step.
 image_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/cropped"
 
+# Path to the CSV file with metadata for the inference images. Best to include the full path in quotations. Ignored if using the "image only" model.
+metadata_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/2021_Plant_10_TimTEST/Metadata/2021_Plant10_Metadata.csv"
+
 # Path to save results (directory and file name for CSV file). Best to include the full path in quotations.
 out_path: "G:/Shared drives/NMFS SEFSC FATES Advanced Technology/BIOLOGY_LIFE_HISTORY_DATA/Atlantic menhaden to be tested w active learning/Atlantic menhaden 2024 Plant 44 (bait VA) Images/images/inference_results.csv"
 
 # Path to model weights (directory and file name of weights file). Best to include the full path in quotations. Be sure to use the model that matches the normalization option above:
+# MULTIMODAL MODEL (PREFERRED):
+#   - best_model_multi.pth for normalization "none"
+# IMAGE ONLY MODELS:
 #   - best_model_images.pth for normalization: "none"
 #   - best_model_images_eq.pth for normalization: "he"
 model_path: "C:/Users/matt.grossi/Documents/GitHubRepos/FATES-BLH-OtolithAgeing/Menhaden Scales Aging/Inference Script/best_model_images_eq.pth"
-

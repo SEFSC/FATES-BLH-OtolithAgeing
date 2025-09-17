@@ -446,7 +446,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/docs/index.html">Read the Docs</a></li><li class="breadcrumb-item"><a href="../../content/docs/index.html">Menhaden Ageing Model</a></li><li class="breadcrumb-item"><a href="../../content/docs/configuration.html">Configuring the Model</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Configuring the Model</h1>
-<p class="subtitle lead">Using the <code>multimodal_configs.yml</code> file</p>
+<p class="subtitle lead">Using the <code>configurations.yml</code> file</p>
 </div>
 
 
@@ -463,7 +463,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>A <code>multimodal_configs.yml</code> file is an easy way to control model performance. The most important settings in this file to pay attention to are:</p>
+<p>A <code>configurations.yml</code> file is an easy way to control model performance. The most important settings in this file to pay attention to are:</p>
 <ol type="1">
 <li>The directory containing the scale images to process</li>
 <li>The directory containing the accompanying metadata</li>
@@ -474,9 +474,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This YAML file is structured as <code>key: value</code> pairs. The order in which these entries are presented in the file does not matter, but <a href="../../content/docs/index.html#options">all keys need to be included and match exactly</a> as expected. For example:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>multimodal_configs.yml</strong></pre>
+<pre><strong>configurations.yml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="multimodal_configs.yml"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="configurations.yml"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuration for pre-processsing scale images (crop, pad, and normalization)</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --------------------------------------------------------------------------------------------</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -533,12 +533,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>There are two schools of thought when it comes to organizing the model files. It is ultimately up to the user to choose whichever convention is best for them.</p>
 <section id="option-1-alongside-the-model" class="level4">
 <h4 class="anchored" data-anchor-id="option-1-alongside-the-model">Option 1: Alongside the model</h4>
-<p>Storing the <code>multimodal_configs.yml</code> file in the same directory as the model scripts is advantageous when <a href="../../content/docs/usage.html#running-the-model">running the model</a> because you will not need to include the full directory path when you specify which configuration file to use. Since you will be executing the model script from the directory that script resides, the system will automatically find the <code>multimodal_configs.yml</code> file in that same directory.</p>
+<p>Storing the <code>configurations.yml</code> file in the same directory as the model scripts is advantageous when <a href="../../content/docs/usage.html#running-the-model">running the model</a> because you will not need to include the full directory path when you specify which configuration file to use. Since you will be executing the model script from the directory that script resides, the system will automatically find the <code>configurations.yml</code> file in that same directory.</p>
 <p>The disadvantage to this option is that your directory may quickly become cluttered with different configuration files for different model runs.</p>
 </section>
 <section id="option-2-alongside-the-data" class="level4">
 <h4 class="anchored" data-anchor-id="option-2-alongside-the-data">Option 2: Alongside the data</h4>
-<p>One might opt instead to store the <code>multimodal_configs.yml</code> file in the same directory as the data to be processed or the directory where the model output will be written out. This is helpful for documenting workflows and ensuring reproducibility since it will be easy to see how a given data set was processed.</p>
+<p>One might opt instead to store the <code>configurations.yml</code> file in the same directory as the data to be processed or the directory where the model output will be written out. This is helpful for documenting workflows and ensuring reproducibility since it will be easy to see how a given data set was processed.</p>
 <p>The disadvantage to this option is that it will require the full directory path to be included when <a href="../../content/docs/usage.html#running-the-model">running the model</a> and specifying the configuration file to use.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">

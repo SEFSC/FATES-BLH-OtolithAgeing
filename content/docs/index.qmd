@@ -50,7 +50,7 @@ For more information, including an execution example, see [Using the Model](/con
 
 ## Options
 
-All user options are contained in a config YAML file (called `multimodal_configs.yml` by default, but can be named anything) to allow easier control and greater reproducibility. Settings are entered as `key: value` pairs as described below. The first set of parameters control the image processing routine while the second set control the age model itself.
+All user options are contained in a config YAML file (called `configurations.yml` by default, but can be named anything) to allow easier control and greater reproducibility. Settings are entered as `key: value` pairs as described below. The first set of parameters control the image processing routine while the second set control the age model itself.
 
 ### Pre-Processing Options
 

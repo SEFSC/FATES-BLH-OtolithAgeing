@@ -6,7 +6,7 @@ metadata-files:
 order: 5
 ---
 
-Running the Menhaden Ageing Model is straightforward and only requires two commands: one to pre-process the images and a second to run the age inference model. You will, however, need to modify a `multimodal_configs.yml` file, as [described previously](configuration.qmd). A sample is provided below, while the contents of this file are explained in more detail in the [model options](index.qmd#options).
+Running the Menhaden Ageing Model is straightforward and only requires two commands: one to pre-process the images and a second to run the age inference model. You will, however, need to modify a `configurations.yml` file, as [described previously](configuration.qmd). A sample is provided below, while the contents of this file are explained in more detail in the [model options](index.qmd#options).
 
 ### Activate the Virtual Environment
 
@@ -39,11 +39,11 @@ where `<config_dir>` is the path to the configuration file containing model sett
 
 #### Examples
 
-If your `multimodal_configs.yml` file is [stored alongside your model script](configuration.qmd#option-1-alongside-the-model), your execution commands will simply be:
+If your `configurations.yml` file is [stored alongside your model script](configuration.qmd#option-1-alongside-the-model), your execution commands will simply be:
 
 ```bash
-python Scale_Raw_Image_Preprocessing.py --config_path multimodal_configs.yml
-python Scale_Aging_Inference_Script_Multimodal.py --config_path multimodal_configs.yml
+python Scale_Raw_Image_Preprocessing.py --config_path configurations.yml
+python Scale_Aging_Inference_Script_Multimodal.py --config_path configurations.yml
 ```
 
 Or, if you named your configuration file something unique such as `configuration-2024-atl.yml`, it might look like this:
@@ -53,11 +53,11 @@ python Scale_Raw_Image_Preprocessing.py --config_path configuration-2024-atl.yml
 python Scale_Aging_Inference_Script_Multimodal.py --config_path configuration-2024-atl.yml
 ```
 
-Alternatively, your `multimodal_configs.yml` file is [stored alongside your data](configuration.qmd#option-2-alongside-the-data), you will need to tell the script exactly where that file is located using its full directory path. Be sure to also include the correct file name, if applicable. For example:
+Alternatively, your `configurations.yml` file is [stored alongside your data](configuration.qmd#option-2-alongside-the-data), you will need to tell the script exactly where that file is located using its full directory path. Be sure to also include the correct file name, if applicable. For example:
 
 ```bash
-python Scale_Raw_Image_Preprocessing.py --config_path "c:/Users/user.name/Documents/data/2024/multimodal_configs.yml"
-python Scale_Aging_Inference_Script_Image_Only.py --config_path "c:/Users/user.name/Documents/data/2024/multimodal_configs.yml"
+python Scale_Raw_Image_Preprocessing.py --config_path "c:/Users/user.name/Documents/data/2024/configurations.yml"
+python Scale_Aging_Inference_Script_Image_Only.py --config_path "c:/Users/user.name/Documents/data/2024/configurations.yml"
 ```
 
 ::: {.callout-tip}
